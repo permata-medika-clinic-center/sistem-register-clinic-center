@@ -4,6 +4,8 @@
  */
 package permata.medika.clinic.center;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author nico
@@ -15,6 +17,13 @@ public class MainPage extends javax.swing.JFrame {
      */
     public MainPage() {
         initComponents();
+        PanelDashboard dashboard = new PanelDashboard();
+        getContentPane().setLayout(new BorderLayout());
+
+        getContentPane().add(dashboard, BorderLayout.CENTER);
+
+        getContentPane().add(jLabel1, BorderLayout.WEST);
+        setVisible(true);
     }
 
     /**
@@ -26,8 +35,14 @@ public class MainPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sidebar.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 236, 856);
 
         setBounds(0, 0, 1512, 884);
     }// </editor-fold>//GEN-END:initComponents
@@ -68,5 +83,6 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
