@@ -19,11 +19,14 @@ public class MainPage extends javax.swing.JFrame {
         initComponents();
         PanelDashboard dashboard = new PanelDashboard();
         getContentPane().setLayout(new BorderLayout());
-
         getContentPane().add(dashboard, BorderLayout.CENTER);
-
-        getContentPane().add(jLabel1, BorderLayout.WEST);
+        getContentPane().add(sidebar, BorderLayout.WEST);
         setVisible(true);
+        
+        clicked_link_dashboard.setVisible(false);
+        clicked_link_pasien.setVisible(false);
+        clicked_link_rekammedis.setVisible(false);
+        clicked_link_logout.setVisible(false);
     }
 
     /**
@@ -35,17 +38,152 @@ public class MainPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        link_dashboard = new javax.swing.JLabel();
+        link_pendaftaran_pasien = new javax.swing.JLabel();
+        link_rekam_medis = new javax.swing.JLabel();
+        link_logout = new javax.swing.JLabel();
+        clicked_link_logout = new javax.swing.JLabel();
+        clicked_link_dashboard = new javax.swing.JLabel();
+        clicked_link_pasien = new javax.swing.JLabel();
+        clicked_link_rekammedis = new javax.swing.JLabel();
+        sidebar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sidebar.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 236, 856);
+        link_dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_dashboardMouseClicked(evt);
+            }
+        });
+        getContentPane().add(link_dashboard);
+        link_dashboard.setBounds(20, 160, 200, 50);
+
+        link_pendaftaran_pasien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_pendaftaran_pasienMouseClicked(evt);
+            }
+        });
+        getContentPane().add(link_pendaftaran_pasien);
+        link_pendaftaran_pasien.setBounds(15, 226, 210, 40);
+
+        link_rekam_medis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_rekam_medisMouseClicked(evt);
+            }
+        });
+        getContentPane().add(link_rekam_medis);
+        link_rekam_medis.setBounds(20, 290, 200, 40);
+
+        link_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_logoutMouseClicked(evt);
+            }
+        });
+        getContentPane().add(link_logout);
+        link_logout.setBounds(20, 350, 200, 50);
+
+        clicked_link_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-logout-white.png"))); // NOI18N
+        clicked_link_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clicked_link_logoutMouseClicked(evt);
+            }
+        });
+        getContentPane().add(clicked_link_logout);
+        clicked_link_logout.setBounds(12, 348, 220, 50);
+
+        clicked_link_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-dashbord-white.png"))); // NOI18N
+        clicked_link_dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clicked_link_dashboardMouseClicked(evt);
+            }
+        });
+        getContentPane().add(clicked_link_dashboard);
+        clicked_link_dashboard.setBounds(12, 159, 220, 50);
+
+        clicked_link_pasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-pendaftaran-white.png"))); // NOI18N
+        clicked_link_pasien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clicked_link_pasienMouseClicked(evt);
+            }
+        });
+        getContentPane().add(clicked_link_pasien);
+        clicked_link_pasien.setBounds(12, 219, 220, 50);
+
+        clicked_link_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-rekammedis-white.png"))); // NOI18N
+        clicked_link_rekammedis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clicked_link_rekammedisMouseClicked(evt);
+            }
+        });
+        getContentPane().add(clicked_link_rekammedis);
+        clicked_link_rekammedis.setBounds(12, 283, 220, 50);
+
+        sidebar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sidebar.png"))); // NOI18N
+        getContentPane().add(sidebar);
+        sidebar.setBounds(0, 0, 236, 856);
 
         setBounds(0, 0, 1512, 884);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void link_pendaftaran_pasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_pendaftaran_pasienMouseClicked
+        PanelPendaftaran pendaftaran = new PanelPendaftaran();
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(pendaftaran, BorderLayout.CENTER);
+        getContentPane().add(sidebar, BorderLayout.WEST);
+        setVisible(true);
+        
+        clicked_link_dashboard.setVisible(false);
+        clicked_link_pasien.setVisible(true);
+        clicked_link_rekammedis.setVisible(false);
+        clicked_link_logout.setVisible(false);
+    }//GEN-LAST:event_link_pendaftaran_pasienMouseClicked
+
+    private void link_dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_dashboardMouseClicked
+        PanelDashboard dashboard = new PanelDashboard();
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(dashboard, BorderLayout.CENTER);
+        getContentPane().add(sidebar, BorderLayout.WEST);
+        setVisible(true);
+        
+        clicked_link_dashboard.setVisible(true);
+        clicked_link_pasien.setVisible(false);
+        clicked_link_rekammedis.setVisible(false);
+        clicked_link_logout.setVisible(false);
+    }//GEN-LAST:event_link_dashboardMouseClicked
+
+    private void link_rekam_medisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_rekam_medisMouseClicked
+        PanelRekamMedis rekammedis = new PanelRekamMedis();
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(rekammedis, BorderLayout.CENTER);
+        getContentPane().add(sidebar, BorderLayout.WEST);
+        setVisible(true);
+        
+        clicked_link_dashboard.setVisible(false);
+        clicked_link_pasien.setVisible(false);
+        clicked_link_rekammedis.setVisible(true);
+        clicked_link_logout.setVisible(false);
+    }//GEN-LAST:event_link_rekam_medisMouseClicked
+
+    private void link_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_logoutMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_link_logoutMouseClicked
+
+    private void clicked_link_dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicked_link_dashboardMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clicked_link_dashboardMouseClicked
+
+    private void clicked_link_pasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicked_link_pasienMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clicked_link_pasienMouseClicked
+
+    private void clicked_link_rekammedisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicked_link_rekammedisMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clicked_link_rekammedisMouseClicked
+
+    private void clicked_link_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicked_link_logoutMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clicked_link_logoutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -83,6 +221,14 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel clicked_link_dashboard;
+    private javax.swing.JLabel clicked_link_logout;
+    private javax.swing.JLabel clicked_link_pasien;
+    private javax.swing.JLabel clicked_link_rekammedis;
+    private javax.swing.JLabel link_dashboard;
+    private javax.swing.JLabel link_logout;
+    private javax.swing.JLabel link_pendaftaran_pasien;
+    private javax.swing.JLabel link_rekam_medis;
+    private javax.swing.JLabel sidebar;
     // End of variables declaration//GEN-END:variables
 }
