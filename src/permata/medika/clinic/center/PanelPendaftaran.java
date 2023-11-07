@@ -34,7 +34,7 @@ public class PanelPendaftaran extends javax.swing.JPanel {
         add(bg_pendaftaran);
         bg_pendaftaran.setBounds(0, 0, 1276, 856);
     }// </editor-fold>//GEN-END:initComponents
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg_pendaftaran;

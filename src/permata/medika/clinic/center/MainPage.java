@@ -5,6 +5,11 @@
 package permata.medika.clinic.center;
 
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -125,8 +130,41 @@ public class MainPage extends javax.swing.JFrame {
 
         setBounds(0, 0, 1512, 884);
     }// </editor-fold>//GEN-END:initComponents
+   
+public static List<String[]> getData() {
+    List<String[]> dataList = new ArrayList<>();
+    
+    try {
+        String sql = "select * from tb_rekam_medis";
+        java.sql.Connection conn = (Connection) config.configDB();
+        java.sql.Statement stm = conn.createStatement();
+        java.sql.ResultSet res = stm.executeQuery(sql);
 
+        while (res.next()) {
+            String[] rowData = new String[]{
+                res.getString(1),
+                res.getString(2),
+                res.getString(3),
+                res.getString(4),
+                res.getString(5),
+                res.getString(6),
+                res.getString(7)
+            };
+
+            dataList.add(rowData);
+            System.out.println(Arrays.toString(rowData));
+        }
+    } catch (Exception e) {
+        System.err.println("koneksi gagal " + e.getMessage());
+    }
+
+    return dataList;
+}
+
+
+    
     private void link_pendaftaran_pasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_pendaftaran_pasienMouseClicked
+
         PanelPendaftaran pendaftaran = new PanelPendaftaran();
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(pendaftaran, BorderLayout.CENTER);
@@ -140,6 +178,7 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_link_pendaftaran_pasienMouseClicked
 
     private void link_dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_dashboardMouseClicked
+
         PanelDashboard dashboard = new PanelDashboard();
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(dashboard, BorderLayout.CENTER);
@@ -153,11 +192,19 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_link_dashboardMouseClicked
 
     private void link_rekam_medisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_rekam_medisMouseClicked
+
         PanelRekamMedis rekammedis = new PanelRekamMedis();
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(rekammedis, BorderLayout.CENTER);
         getContentPane().add(sidebar, BorderLayout.WEST);
         setVisible(true);
+        
+       List<String[]> rowData = getData();
+        if (rowData != null) {
+            rekammedis.updateTable(rowData);
+        }else{
+            System.out.println("data dari db kososng");
+        }
         
         clicked_link_dashboard.setVisible(false);
         clicked_link_pasien.setVisible(false);
