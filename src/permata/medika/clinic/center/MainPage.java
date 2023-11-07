@@ -32,6 +32,7 @@ public class MainPage extends javax.swing.JFrame {
         clicked_link_pasien.setVisible(false);
         clicked_link_rekammedis.setVisible(false);
         clicked_link_logout.setVisible(false);
+        
     }
 
     /**
@@ -131,38 +132,93 @@ public class MainPage extends javax.swing.JFrame {
         setBounds(0, 0, 1512, 884);
     }// </editor-fold>//GEN-END:initComponents
    
-public static List<String[]> getData() {
-    List<String[]> dataList = new ArrayList<>();
-    
-    try {
-        String sql = "select * from tb_rekam_medis";
-        java.sql.Connection conn = (Connection) config.configDB();
-        java.sql.Statement stm = conn.createStatement();
-        java.sql.ResultSet res = stm.executeQuery(sql);
+    public static List<String[]> getData() {
+        List<String[]> dataList = new ArrayList<>();
 
-        while (res.next()) {
-            String[] rowData = new String[]{
-                res.getString(1),
-                res.getString(2),
-                res.getString(3),
-                res.getString(4),
-                res.getString(5),
-                res.getString(6),
-                res.getString(7)
-            };
+        try {
+            String sql = "select * from tb_rekam_medis";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
 
-            dataList.add(rowData);
-            System.out.println(Arrays.toString(rowData));
+            while (res.next()) {
+                String[] rowData = new String[]{
+                    res.getString(1),
+                    res.getString(2),
+                    res.getString(3),
+                    res.getString(4),
+                    res.getString(5),
+                    res.getString(6),
+                    res.getString(7)
+                };
+
+                dataList.add(rowData);
+                System.out.println(Arrays.toString(rowData));
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
         }
-    } catch (Exception e) {
-        System.err.println("koneksi gagal " + e.getMessage());
+
+        return dataList;
+    }
+    
+    public String getJumlahRM(){
+        String jumlah_rekam_medis = null;
+        try {
+            String sql = "SELECT count('id_rekam_medis') as jumlah_rekam_medis FROM `tb_rekam_medis`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if(res.next()){
+                jumlah_rekam_medis = res.getString(1);
+            }else{
+                System.out.println("tidak ada data");
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+        return  jumlah_rekam_medis;
+    }
+    
+    public String getJumlahDokter(){
+        String jumlah_dokter = null;
+        try {
+            String sql = "SELECT count('id_karyawan') as jumlah_dokter FROM `tb_karyawan` where status_karyawan = 'dokter'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if(res.next()){
+                jumlah_dokter = res.getString(1);
+            }else{
+                System.out.println("tidak ada data");
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+        return  jumlah_dokter;
+    }
+    
+        public String getJumlahPoli(){
+        String jumlah_poli = null;
+        try {
+            String sql = "SELECT count('id_poli') as jumlah_poli FROM `tb_poli`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if(res.next()){
+                jumlah_poli = res.getString(1);
+            }else{
+                System.out.println("tidak ada data");
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+        return  jumlah_poli;
     }
 
-    return dataList;
-}
-
-
-    
     private void link_pendaftaran_pasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_pendaftaran_pasienMouseClicked
 
         PanelPendaftaran pendaftaran = new PanelPendaftaran();
@@ -184,6 +240,10 @@ public static List<String[]> getData() {
         getContentPane().add(dashboard, BorderLayout.CENTER);
         getContentPane().add(sidebar, BorderLayout.WEST);
         setVisible(true);
+        
+        dashboard.setJumlahPasien(getJumlahRM());
+        dashboard.setJumlahDokter(getJumlahDokter());
+        dashboard.setJumlahPoli(getJumlahPoli());
         
         clicked_link_dashboard.setVisible(true);
         clicked_link_pasien.setVisible(false);

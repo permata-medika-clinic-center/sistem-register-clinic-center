@@ -26,17 +26,52 @@ public class PanelDashboard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_total_poli = new javax.swing.JLabel();
+        lbl_total_dokter = new javax.swing.JLabel();
+        lbl_total_pasien = new javax.swing.JLabel();
         bg_dashboard = new javax.swing.JLabel();
 
         setLayout(null);
+
+        lbl_total_poli.setFont(new java.awt.Font("SansSerif", 1, 70)); // NOI18N
+        lbl_total_poli.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_total_poli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lbl_total_poli);
+        lbl_total_poli.setBounds(1000, 230, 100, 120);
+
+        lbl_total_dokter.setFont(new java.awt.Font("SansSerif", 1, 70)); // NOI18N
+        lbl_total_dokter.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_total_dokter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lbl_total_dokter);
+        lbl_total_dokter.setBounds(630, 230, 100, 120);
+
+        lbl_total_pasien.setFont(new java.awt.Font("SansSerif", 1, 70)); // NOI18N
+        lbl_total_pasien.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_total_pasien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lbl_total_pasien);
+        lbl_total_pasien.setBounds(270, 230, 100, 120);
 
         bg_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Panel - Dashboard - Admin.png"))); // NOI18N
         add(bg_dashboard);
         bg_dashboard.setBounds(0, 0, 1276, 856);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setJumlahPasien(String jumlah){
+        lbl_total_pasien.setText(jumlah);
+    }
+    
+    public void setJumlahDokter(String jumlah){
+        lbl_total_dokter.setText(jumlah);
+    }
+    
+    public void setJumlahPoli(String jumlah){
+        lbl_total_poli.setText(jumlah);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg_dashboard;
+    private javax.swing.JLabel lbl_total_dokter;
+    private javax.swing.JLabel lbl_total_pasien;
+    private javax.swing.JLabel lbl_total_poli;
     // End of variables declaration//GEN-END:variables
 }
