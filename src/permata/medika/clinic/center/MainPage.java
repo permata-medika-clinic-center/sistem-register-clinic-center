@@ -31,6 +31,9 @@ public class MainPage extends javax.swing.JFrame {
         clicked_link_pasien.setVisible(false);
         clicked_link_rekammedis.setVisible(false);
         clicked_link_logout.setVisible(false);
+        setJumlahRM();
+        setJumlahDokter();
+        //setJumlahPoli();
     }
 
     /**
@@ -54,6 +57,9 @@ public class MainPage extends javax.swing.JFrame {
         sidebar = new javax.swing.JLabel();
         panel_content = new javax.swing.JPanel();
         menu_dashboard = new javax.swing.JPanel();
+        lbl_jumlah_poli = new javax.swing.JLabel();
+        lbl_jumlah_dokter = new javax.swing.JLabel();
+        lbl_total_pasien = new javax.swing.JLabel();
         bg_dashboard = new javax.swing.JLabel();
         menu_pendaftaran = new javax.swing.JPanel();
         bg_pendaftaran = new javax.swing.JLabel();
@@ -145,6 +151,27 @@ public class MainPage extends javax.swing.JFrame {
         menu_dashboard.setBackground(new java.awt.Color(102, 255, 0));
         menu_dashboard.setLayout(null);
 
+        lbl_jumlah_poli.setFont(new java.awt.Font("Helvetica Neue", 1, 64)); // NOI18N
+        lbl_jumlah_poli.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_jumlah_poli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_jumlah_poli.setText("0");
+        menu_dashboard.add(lbl_jumlah_poli);
+        lbl_jumlah_poli.setBounds(1010, 230, 36, 100);
+
+        lbl_jumlah_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 64)); // NOI18N
+        lbl_jumlah_dokter.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_jumlah_dokter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_jumlah_dokter.setText("0");
+        menu_dashboard.add(lbl_jumlah_dokter);
+        lbl_jumlah_dokter.setBounds(640, 230, 36, 100);
+
+        lbl_total_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 64)); // NOI18N
+        lbl_total_pasien.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_total_pasien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_total_pasien.setText("0");
+        menu_dashboard.add(lbl_total_pasien);
+        lbl_total_pasien.setBounds(280, 230, 36, 100);
+
         bg_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Panel - Dashboard - Admin.png"))); // NOI18N
         menu_dashboard.add(bg_dashboard);
         bg_dashboard.setBounds(0, 0, 1276, 856);
@@ -223,8 +250,8 @@ public class MainPage extends javax.swing.JFrame {
         return dataList;
     }
     
-    public String getJumlahRM(){
-        String jumlah_rekam_medis = null;
+    public void setJumlahRM(){
+        String hasil = null;
         try {
             String sql = "SELECT count('id_rekam_medis') as jumlah_rekam_medis FROM `tb_rekam_medis`";
             java.sql.Connection conn = (Connection) config.configDB();
@@ -232,18 +259,16 @@ public class MainPage extends javax.swing.JFrame {
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             if(res.next()){
-                jumlah_rekam_medis = res.getString(1);
+                lbl_total_pasien.setText(res.getString(1));
             }else{
                 System.out.println("tidak ada data");
             }
         } catch (Exception e) {
             System.err.println("koneksi gagal " + e.getMessage());
         }
-        return  jumlah_rekam_medis;
     }
     
-    public String getJumlahDokter(){
-        String jumlah_dokter = null;
+    public void setJumlahDokter(){
         try {
             String sql = "SELECT count('id_karyawan') as jumlah_dokter FROM `tb_karyawan` where status_karyawan = 'dokter'";
             java.sql.Connection conn = (Connection) config.configDB();
@@ -251,17 +276,16 @@ public class MainPage extends javax.swing.JFrame {
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             if(res.next()){
-                jumlah_dokter = res.getString(1);
+                lbl_jumlah_dokter.setText(res.getString(1));
             }else{
                 System.out.println("tidak ada data");
             }
         } catch (Exception e) {
             System.err.println("koneksi gagal " + e.getMessage());
         }
-        return  jumlah_dokter;
     }
     
-    public String getJumlahPoli(){
+    public void setJumlahPoli(){
         String jumlah_poli = null;
         try {
             String sql = "SELECT count('id_poli') as jumlah_poli FROM `tb_poli`";
@@ -270,14 +294,13 @@ public class MainPage extends javax.swing.JFrame {
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             if(res.next()){
-                jumlah_poli = res.getString(1);
+                lbl_jumlah_poli.setText(res.getString(1));
             }else{
                 System.out.println("tidak ada data");
             }
         } catch (Exception e) {
             System.err.println("koneksi gagal " + e.getMessage());
         }
-        return  jumlah_poli;
     }
 
     private void link_pendaftaran_pasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_pendaftaran_pasienMouseClicked
@@ -309,6 +332,9 @@ public class MainPage extends javax.swing.JFrame {
         clicked_link_pasien.setVisible(false);
         clicked_link_rekammedis.setVisible(false);
         clicked_link_logout.setVisible(false);
+        setJumlahRM();
+        setJumlahDokter();
+        setJumlahPoli();
     }//GEN-LAST:event_link_dashboardMouseClicked
 
     private void link_rekam_medisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_rekam_medisMouseClicked
@@ -395,6 +421,9 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel clicked_link_logout;
     private javax.swing.JLabel clicked_link_pasien;
     private javax.swing.JLabel clicked_link_rekammedis;
+    private javax.swing.JLabel lbl_jumlah_dokter;
+    private javax.swing.JLabel lbl_jumlah_poli;
+    private javax.swing.JLabel lbl_total_pasien;
     private javax.swing.JLabel link_dashboard;
     private javax.swing.JLabel link_logout;
     private javax.swing.JLabel link_pendaftaran_pasien;
