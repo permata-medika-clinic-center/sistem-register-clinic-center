@@ -29,11 +29,12 @@ public class MainPage extends javax.swing.JFrame {
         initComponents();
         clicked_link_dashboard.setVisible(true);
         clicked_link_pasien.setVisible(false);
+        clicked_link_keluhan.setVisible(false);
         clicked_link_rekammedis.setVisible(false);
         clicked_link_logout.setVisible(false);
-        setJumlahRM();
         setJumlahDokter();
-        //setJumlahPoli();
+        setJumlahPoli();
+        setJumlahPasien();
     }
 
     /**
@@ -46,14 +47,16 @@ public class MainPage extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_sidebar = new javax.swing.JPanel();
+        link_keluhan = new javax.swing.JLabel();
+        clicked_link_keluhan = new javax.swing.JLabel();
         link_dashboard = new javax.swing.JLabel();
+        clicked_link_dashboard = new javax.swing.JLabel();
         link_pendaftaran_pasien = new javax.swing.JLabel();
+        clicked_link_pasien = new javax.swing.JLabel();
         link_rekam_medis = new javax.swing.JLabel();
+        clicked_link_rekammedis = new javax.swing.JLabel();
         link_logout = new javax.swing.JLabel();
         clicked_link_logout = new javax.swing.JLabel();
-        clicked_link_dashboard = new javax.swing.JLabel();
-        clicked_link_pasien = new javax.swing.JLabel();
-        clicked_link_rekammedis = new javax.swing.JLabel();
         sidebar = new javax.swing.JLabel();
         panel_content = new javax.swing.JPanel();
         menu_dashboard = new javax.swing.JPanel();
@@ -61,6 +64,8 @@ public class MainPage extends javax.swing.JFrame {
         lbl_jumlah_dokter = new javax.swing.JLabel();
         lbl_total_pasien = new javax.swing.JLabel();
         bg_dashboard = new javax.swing.JLabel();
+        menu_keluhan = new javax.swing.JPanel();
+        bg_keluhan = new javax.swing.JLabel();
         menu_pendaftaran = new javax.swing.JPanel();
         bg_pendaftaran = new javax.swing.JLabel();
         menu_rekammedis = new javax.swing.JPanel();
@@ -71,46 +76,30 @@ public class MainPage extends javax.swing.JFrame {
 
         panel_sidebar.setLayout(null);
 
+        link_keluhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_keluhanMouseClicked(evt);
+            }
+        });
+        panel_sidebar.add(link_keluhan);
+        link_keluhan.setBounds(10, 270, 210, 50);
+
+        clicked_link_keluhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-keluhan-white-1.png"))); // NOI18N
+        clicked_link_keluhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clicked_link_keluhanMouseClicked(evt);
+            }
+        });
+        panel_sidebar.add(clicked_link_keluhan);
+        clicked_link_keluhan.setBounds(13, 269, 212, 50);
+
         link_dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 link_dashboardMouseClicked(evt);
             }
         });
         panel_sidebar.add(link_dashboard);
-        link_dashboard.setBounds(20, 160, 200, 50);
-
-        link_pendaftaran_pasien.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                link_pendaftaran_pasienMouseClicked(evt);
-            }
-        });
-        panel_sidebar.add(link_pendaftaran_pasien);
-        link_pendaftaran_pasien.setBounds(15, 226, 210, 40);
-
-        link_rekam_medis.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                link_rekam_medisMouseClicked(evt);
-            }
-        });
-        panel_sidebar.add(link_rekam_medis);
-        link_rekam_medis.setBounds(20, 290, 200, 40);
-
-        link_logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                link_logoutMouseClicked(evt);
-            }
-        });
-        panel_sidebar.add(link_logout);
-        link_logout.setBounds(20, 350, 200, 50);
-
-        clicked_link_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-logout-white.png"))); // NOI18N
-        clicked_link_logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clicked_link_logoutMouseClicked(evt);
-            }
-        });
-        panel_sidebar.add(clicked_link_logout);
-        clicked_link_logout.setBounds(12, 348, 220, 50);
+        link_dashboard.setBounds(20, 130, 200, 50);
 
         clicked_link_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-dashbord-white.png"))); // NOI18N
         clicked_link_dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,27 +108,60 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         panel_sidebar.add(clicked_link_dashboard);
-        clicked_link_dashboard.setBounds(12, 159, 220, 50);
+        clicked_link_dashboard.setBounds(12, 133, 220, 50);
 
-        clicked_link_pasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-pendaftaran-white.png"))); // NOI18N
+        link_pendaftaran_pasien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_pendaftaran_pasienMouseClicked(evt);
+            }
+        });
+        panel_sidebar.add(link_pendaftaran_pasien);
+        link_pendaftaran_pasien.setBounds(10, 210, 210, 40);
+
+        clicked_link_pasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-pendaftaran-white-1.png"))); // NOI18N
         clicked_link_pasien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clicked_link_pasienMouseClicked(evt);
             }
         });
         panel_sidebar.add(clicked_link_pasien);
-        clicked_link_pasien.setBounds(12, 219, 220, 50);
+        clicked_link_pasien.setBounds(13, 201, 220, 50);
 
-        clicked_link_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-rekammedis-white.png"))); // NOI18N
+        link_rekam_medis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_rekam_medisMouseClicked(evt);
+            }
+        });
+        panel_sidebar.add(link_rekam_medis);
+        link_rekam_medis.setBounds(20, 340, 200, 40);
+
+        clicked_link_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-rekammedis-white-1.png"))); // NOI18N
         clicked_link_rekammedis.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clicked_link_rekammedisMouseClicked(evt);
             }
         });
         panel_sidebar.add(clicked_link_rekammedis);
-        clicked_link_rekammedis.setBounds(12, 283, 220, 50);
+        clicked_link_rekammedis.setBounds(12, 337, 220, 50);
 
-        sidebar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sidebar.png"))); // NOI18N
+        link_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_logoutMouseClicked(evt);
+            }
+        });
+        panel_sidebar.add(link_logout);
+        link_logout.setBounds(20, 410, 200, 50);
+
+        clicked_link_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/effect/link-logout-white-1.png"))); // NOI18N
+        clicked_link_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clicked_link_logoutMouseClicked(evt);
+            }
+        });
+        panel_sidebar.add(clicked_link_logout);
+        clicked_link_logout.setBounds(12, 405, 220, 50);
+
+        sidebar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Slide-bar.png"))); // NOI18N
         panel_sidebar.add(sidebar);
         sidebar.setBounds(0, 0, 236, 856);
 
@@ -178,6 +200,16 @@ public class MainPage extends javax.swing.JFrame {
 
         panel_content.add(menu_dashboard);
         menu_dashboard.setBounds(0, 0, 1276, 856);
+
+        menu_keluhan.setBackground(new java.awt.Color(102, 255, 0));
+        menu_keluhan.setLayout(null);
+
+        bg_keluhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Keluhan Pasien - Admin.png"))); // NOI18N
+        menu_keluhan.add(bg_keluhan);
+        bg_keluhan.setBounds(0, 0, 1276, 856);
+
+        panel_content.add(menu_keluhan);
+        menu_keluhan.setBounds(0, 0, 1276, 856);
 
         menu_pendaftaran.setBackground(new java.awt.Color(102, 255, 0));
         menu_pendaftaran.setLayout(null);
@@ -249,11 +281,11 @@ public class MainPage extends javax.swing.JFrame {
 
         return dataList;
     }
-    
-    public void setJumlahRM(){
+
+    public void setJumlahPasien(){
         String hasil = null;
         try {
-            String sql = "SELECT count('id_rekam_medis') as jumlah_rekam_medis FROM `tb_rekam_medis`";
+            String sql = "SELECT count('id_rekam_medis') as jumlah_rekam_medis FROM `tb_pasien`";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -270,7 +302,7 @@ public class MainPage extends javax.swing.JFrame {
     
     public void setJumlahDokter(){
         try {
-            String sql = "SELECT count('id_karyawan') as jumlah_dokter FROM `tb_karyawan` where status_karyawan = 'dokter'";
+            String sql = "SELECT count('id_dokter') as jumlah_dokter FROM `tb_dokter`";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -315,6 +347,7 @@ public class MainPage extends javax.swing.JFrame {
         
         clicked_link_dashboard.setVisible(false);
         clicked_link_pasien.setVisible(true);
+        clicked_link_keluhan.setVisible(false);
         clicked_link_rekammedis.setVisible(false);
         clicked_link_logout.setVisible(false);
     }//GEN-LAST:event_link_pendaftaran_pasienMouseClicked
@@ -330,9 +363,10 @@ public class MainPage extends javax.swing.JFrame {
         
         clicked_link_dashboard.setVisible(true);
         clicked_link_pasien.setVisible(false);
+        clicked_link_keluhan.setVisible(false);
         clicked_link_rekammedis.setVisible(false);
         clicked_link_logout.setVisible(false);
-        setJumlahRM();
+        setJumlahPasien();
         setJumlahDokter();
         setJumlahPoli();
     }//GEN-LAST:event_link_dashboardMouseClicked
@@ -354,6 +388,7 @@ public class MainPage extends javax.swing.JFrame {
 //        }
         clicked_link_dashboard.setVisible(false);
         clicked_link_pasien.setVisible(false);
+        clicked_link_keluhan.setVisible(false);
         clicked_link_rekammedis.setVisible(true);
         clicked_link_logout.setVisible(false);
     }//GEN-LAST:event_link_rekam_medisMouseClicked
@@ -377,6 +412,26 @@ public class MainPage extends javax.swing.JFrame {
     private void clicked_link_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicked_link_logoutMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_clicked_link_logoutMouseClicked
+
+    private void link_keluhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_keluhanMouseClicked
+        panel_content.removeAll();
+        panel_content.repaint();
+        panel_content.revalidate();
+        
+        panel_content.add(menu_keluhan);
+        panel_content.repaint();
+        panel_content.revalidate();
+        
+       clicked_link_dashboard.setVisible(false);
+        clicked_link_pasien.setVisible(false);
+        clicked_link_keluhan.setVisible(true);
+        clicked_link_rekammedis.setVisible(false);
+        clicked_link_logout.setVisible(false);
+    }//GEN-LAST:event_link_keluhanMouseClicked
+
+    private void clicked_link_keluhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicked_link_keluhanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clicked_link_keluhanMouseClicked
 
     /**
      * @param args the command line arguments
@@ -415,9 +470,11 @@ public class MainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg_dashboard;
+    private javax.swing.JLabel bg_keluhan;
     private javax.swing.JLabel bg_pendaftaran;
     private javax.swing.JLabel bg_rekammedis;
     private javax.swing.JLabel clicked_link_dashboard;
+    private javax.swing.JLabel clicked_link_keluhan;
     private javax.swing.JLabel clicked_link_logout;
     private javax.swing.JLabel clicked_link_pasien;
     private javax.swing.JLabel clicked_link_rekammedis;
@@ -425,10 +482,12 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_jumlah_poli;
     private javax.swing.JLabel lbl_total_pasien;
     private javax.swing.JLabel link_dashboard;
+    private javax.swing.JLabel link_keluhan;
     private javax.swing.JLabel link_logout;
     private javax.swing.JLabel link_pendaftaran_pasien;
     private javax.swing.JLabel link_rekam_medis;
     private javax.swing.JPanel menu_dashboard;
+    private javax.swing.JPanel menu_keluhan;
     private javax.swing.JPanel menu_pendaftaran;
     private javax.swing.JPanel menu_rekammedis;
     private javax.swing.JPanel panel_content;

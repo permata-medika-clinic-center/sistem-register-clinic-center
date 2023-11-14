@@ -16,6 +16,12 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {
         initComponents();
+        login_content.removeAll();
+        login_content.repaint();
+        login_content.revalidate();
+        login_content.add(panel_welcome);
+        login_content.repaint();
+        login_content.revalidate();
     }
 
     /**
@@ -27,6 +33,11 @@ public class LoginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        login_content = new javax.swing.JPanel();
+        panel_welcome = new javax.swing.JPanel();
+        btn_masuk = new javax.swing.JLabel();
+        bg_login1 = new javax.swing.JLabel();
+        panel_login = new javax.swing.JPanel();
         btn_login = new javax.swing.JLabel();
         tf_password = new javax.swing.JTextField();
         tf_username = new javax.swing.JTextField();
@@ -34,29 +45,86 @@ public class LoginForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-        getContentPane().add(btn_login);
+
+        login_content.setLayout(null);
+
+        panel_welcome.setLayout(null);
+
+        btn_masuk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_masukMouseClicked(evt);
+            }
+        });
+        panel_welcome.add(btn_masuk);
+        btn_masuk.setBounds(160, 490, 210, 50);
+
+        bg_login1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Welcome.png"))); // NOI18N
+        bg_login1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bg_login1MouseClicked(evt);
+            }
+        });
+        panel_welcome.add(bg_login1);
+        bg_login1.setBounds(0, 0, 1512, 856);
+
+        login_content.add(panel_welcome);
+        panel_welcome.setBounds(0, 0, 1510, 860);
+
+        panel_login.setLayout(null);
+
+        btn_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_loginMouseClicked(evt);
+            }
+        });
+        panel_login.add(btn_login);
         btn_login.setBounds(230, 520, 200, 50);
 
         tf_password.setBackground(new Color(0,0,0,0));
         tf_password.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_password.setBorder(null);
-        getContentPane().add(tf_password);
+        panel_login.add(tf_password);
         tf_password.setBounds(250, 450, 330, 50);
 
         tf_username.setBackground(new Color(0,0,0,0));
         tf_username.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_username.setBorder(null);
-        getContentPane().add(tf_username);
+        panel_login.add(tf_username);
         tf_username.setBounds(250, 360, 330, 50);
 
         bg_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.png"))); // NOI18N
-        getContentPane().add(bg_login);
+        panel_login.add(bg_login);
         bg_login.setBounds(0, 0, 1512, 856);
         bg_login.getAccessibleContext().setAccessibleName("");
+
+        login_content.add(panel_login);
+        panel_login.setBounds(0, 0, 1510, 860);
+
+        getContentPane().add(login_content);
+        login_content.setBounds(0, 0, 1510, 860);
 
         setSize(new java.awt.Dimension(1512, 884));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_masukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_masukMouseClicked
+        login_content.removeAll();
+        login_content.repaint();
+        login_content.revalidate();
+        login_content.add(panel_login);
+        login_content.repaint();
+        login_content.revalidate();
+    }//GEN-LAST:event_btn_masukMouseClicked
+
+    private void btn_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMouseClicked
+        MainPage halaman = new MainPage();
+        halaman.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_loginMouseClicked
+
+    private void bg_login1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bg_login1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bg_login1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -95,7 +163,12 @@ public class LoginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg_login;
+    private javax.swing.JLabel bg_login1;
     private javax.swing.JLabel btn_login;
+    private javax.swing.JLabel btn_masuk;
+    private javax.swing.JPanel login_content;
+    private javax.swing.JPanel panel_login;
+    private javax.swing.JPanel panel_welcome;
     private javax.swing.JTextField tf_password;
     private javax.swing.JTextField tf_username;
     // End of variables declaration//GEN-END:variables
