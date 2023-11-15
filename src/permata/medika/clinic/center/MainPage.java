@@ -14,7 +14,9 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import java.awt.Color;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 /**
  *
  * @author nico
@@ -27,6 +29,13 @@ public class MainPage extends javax.swing.JFrame {
 
     public MainPage() {
         initComponents();
+        panel_content.removeAll();
+        panel_content.repaint();
+        panel_content.revalidate();
+        
+        panel_content.add(menu_dashboard);
+        panel_content.repaint();
+        panel_content.revalidate();
         clicked_link_dashboard.setVisible(true);
         clicked_link_pasien.setVisible(false);
         clicked_link_keluhan.setVisible(false);
@@ -35,6 +44,8 @@ public class MainPage extends javax.swing.JFrame {
         setJumlahDokter();
         setJumlahPoli();
         setJumlahPasien();
+        getComboRM();
+        getComboPoli();
     }
 
     /**
@@ -64,10 +75,35 @@ public class MainPage extends javax.swing.JFrame {
         lbl_jumlah_dokter = new javax.swing.JLabel();
         lbl_total_pasien = new javax.swing.JLabel();
         bg_dashboard = new javax.swing.JLabel();
-        menu_keluhan = new javax.swing.JPanel();
-        bg_keluhan = new javax.swing.JLabel();
         menu_pendaftaran = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        tf_id_pasien = new javax.swing.JTextField();
+        btn_simpan_pasien = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta_alamat = new javax.swing.JTextArea();
+        jd_tanggal_lahir = new com.toedter.calendar.JDateChooser();
+        tf_no_bpjs = new javax.swing.JTextField();
+        tf_nomor_telepon = new javax.swing.JTextField();
+        tf_nik = new javax.swing.JTextField();
+        tf_nama_lengkap = new javax.swing.JTextField();
+        cmb_kelamin = new javax.swing.JComboBox<>();
+        cmb_agama = new javax.swing.JComboBox<>();
+        cmb_status_pernikahan = new javax.swing.JComboBox<>();
+        cmb_poli = new javax.swing.JComboBox<>();
         bg_pendaftaran = new javax.swing.JLabel();
+        cmb_poli1 = new javax.swing.JComboBox<>();
+        menu_keluhan = new javax.swing.JPanel();
+        tf_id_keluhan = new javax.swing.JTextField();
+        btn_simpan_keluhan = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_keluhan = new javax.swing.JTextArea();
+        tf_jadwal_dokter = new javax.swing.JTextField();
+        tf_nik_keluhan = new javax.swing.JTextField();
+        tf_nama_lengkap_keluhan = new javax.swing.JTextField();
+        cmb_dokter = new javax.swing.JComboBox<>();
+        cmb_poli_tujuan = new javax.swing.JComboBox<>();
+        cmb_rekam_medis = new javax.swing.JComboBox<>();
+        bg_keluhan = new javax.swing.JLabel();
         menu_rekammedis = new javax.swing.JPanel();
         bg_rekammedis = new javax.swing.JLabel();
 
@@ -194,37 +230,193 @@ public class MainPage extends javax.swing.JFrame {
         menu_dashboard.add(lbl_total_pasien);
         lbl_total_pasien.setBounds(280, 230, 36, 100);
 
-        bg_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Panel - Dashboard - Admin.png"))); // NOI18N
+        bg_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel - Dashboard - Admin.png"))); // NOI18N
         menu_dashboard.add(bg_dashboard);
         bg_dashboard.setBounds(0, 0, 1276, 856);
 
         panel_content.add(menu_dashboard);
         menu_dashboard.setBounds(0, 0, 1276, 856);
 
+        menu_pendaftaran.setBackground(new java.awt.Color(102, 255, 0));
+        menu_pendaftaran.setLayout(null);
+
+        jLabel1.setText("isi id pasien");
+        menu_pendaftaran.add(jLabel1);
+        jLabel1.setBounds(170, 490, 100, 17);
+
+        tf_id_pasien.setBackground(new Color(0,0,0,0));
+        tf_id_pasien.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_id_pasien.setBorder(null);
+        menu_pendaftaran.add(tf_id_pasien);
+        tf_id_pasien.setBounds(40, 520, 340, 50);
+
+        btn_simpan_pasien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_simpan_pasienMouseClicked(evt);
+            }
+        });
+        menu_pendaftaran.add(btn_simpan_pasien);
+        btn_simpan_pasien.setBounds(920, 480, 110, 40);
+
+        ta_alamat.setColumns(20);
+        ta_alamat.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        ta_alamat.setLineWrap(true);
+        ta_alamat.setRows(5);
+        ta_alamat.setBorder(null);
+        jScrollPane1.setViewportView(ta_alamat);
+
+        menu_pendaftaran.add(jScrollPane1);
+        jScrollPane1.setBounds(470, 480, 350, 100);
+        menu_pendaftaran.add(jd_tanggal_lahir);
+        jd_tanggal_lahir.setBounds(870, 190, 380, 50);
+
+        tf_no_bpjs.setBackground(new Color(0,0,0,0));
+        tf_no_bpjs.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_no_bpjs.setBorder(null);
+        menu_pendaftaran.add(tf_no_bpjs);
+        tf_no_bpjs.setBounds(890, 380, 340, 50);
+
+        tf_nomor_telepon.setBackground(new Color(0,0,0,0));
+        tf_nomor_telepon.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_nomor_telepon.setBorder(null);
+        menu_pendaftaran.add(tf_nomor_telepon);
+        tf_nomor_telepon.setBounds(50, 285, 340, 50);
+
+        tf_nik.setBackground(new Color(0,0,0,0));
+        tf_nik.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_nik.setBorder(null);
+        tf_nik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_nikActionPerformed(evt);
+            }
+        });
+        menu_pendaftaran.add(tf_nik);
+        tf_nik.setBounds(470, 188, 340, 50);
+
+        tf_nama_lengkap.setBackground(new Color(0,0,0,0));
+        tf_nama_lengkap.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_nama_lengkap.setBorder(null);
+        menu_pendaftaran.add(tf_nama_lengkap);
+        tf_nama_lengkap.setBounds(50, 188, 340, 50);
+
+        cmb_kelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Kelamin ---", "Laki - Laki", "Perempuan" }));
+        cmb_kelamin.setBorder(null);
+        menu_pendaftaran.add(cmb_kelamin);
+        cmb_kelamin.setBounds(450, 283, 380, 50);
+
+        cmb_agama.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Agama ---", "Islam", "Protestan", "Katolik", "Hindu", "Budha", "Konghucu" }));
+        cmb_agama.setBorder(null);
+        menu_pendaftaran.add(cmb_agama);
+        cmb_agama.setBounds(870, 288, 380, 50);
+
+        cmb_status_pernikahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Status ---", "Belum Nikah", "Sudah Nikah" }));
+        cmb_status_pernikahan.setBorder(null);
+        menu_pendaftaran.add(cmb_status_pernikahan);
+        cmb_status_pernikahan.setBounds(450, 390, 380, 50);
+
+        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---", "Belum Nikah", "Sudah Nikah" }));
+        cmb_poli.setBorder(null);
+        menu_pendaftaran.add(cmb_poli);
+        cmb_poli.setBounds(30, 390, 380, 50);
+
+        bg_pendaftaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel Pendaftaran - Admin.png"))); // NOI18N
+        menu_pendaftaran.add(bg_pendaftaran);
+        bg_pendaftaran.setBounds(0, 0, 1276, 856);
+
+        cmb_poli1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---" }));
+        cmb_poli1.setBorder(null);
+        menu_pendaftaran.add(cmb_poli1);
+        cmb_poli1.setBounds(30, 390, 380, 50);
+
+        panel_content.add(menu_pendaftaran);
+        menu_pendaftaran.setBounds(0, 0, 1276, 856);
+
         menu_keluhan.setBackground(new java.awt.Color(102, 255, 0));
         menu_keluhan.setLayout(null);
 
-        bg_keluhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Keluhan Pasien - Admin.png"))); // NOI18N
+        tf_id_keluhan.setBackground(new Color(0,0,0,0));
+        tf_id_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_id_keluhan.setBorder(null);
+        menu_keluhan.add(tf_id_keluhan);
+        tf_id_keluhan.setBounds(50, 400, 340, 50);
+
+        btn_simpan_keluhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_simpan_keluhanMouseClicked(evt);
+            }
+        });
+        menu_keluhan.add(btn_simpan_keluhan);
+        btn_simpan_keluhan.setBounds(520, 530, 110, 40);
+
+        ta_keluhan.setColumns(20);
+        ta_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        ta_keluhan.setLineWrap(true);
+        ta_keluhan.setRows(5);
+        ta_keluhan.setBorder(null);
+        jScrollPane2.setViewportView(ta_keluhan);
+
+        menu_keluhan.add(jScrollPane2);
+        jScrollPane2.setBounds(460, 380, 350, 100);
+
+        tf_jadwal_dokter.setBackground(new Color(0,0,0,0));
+        tf_jadwal_dokter.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_jadwal_dokter.setBorder(null);
+        menu_keluhan.add(tf_jadwal_dokter);
+        tf_jadwal_dokter.setBounds(890, 290, 340, 50);
+
+        tf_nik_keluhan.setBackground(new Color(0,0,0,0));
+        tf_nik_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_nik_keluhan.setBorder(null);
+        menu_keluhan.add(tf_nik_keluhan);
+        tf_nik_keluhan.setBounds(890, 190, 340, 50);
+
+        tf_nama_lengkap_keluhan.setBackground(new Color(0,0,0,0));
+        tf_nama_lengkap_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_nama_lengkap_keluhan.setBorder(null);
+        menu_keluhan.add(tf_nama_lengkap_keluhan);
+        tf_nama_lengkap_keluhan.setBounds(480, 190, 340, 50);
+
+        cmb_dokter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Dokter ---" }));
+        cmb_dokter.setBorder(null);
+        cmb_dokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_dokterActionPerformed(evt);
+            }
+        });
+        menu_keluhan.add(cmb_dokter);
+        cmb_dokter.setBounds(450, 286, 380, 50);
+
+        cmb_poli_tujuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---" }));
+        cmb_poli_tujuan.setBorder(null);
+        cmb_poli_tujuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_poli_tujuanActionPerformed(evt);
+            }
+        });
+        menu_keluhan.add(cmb_poli_tujuan);
+        cmb_poli_tujuan.setBounds(40, 288, 380, 50);
+
+        cmb_rekam_medis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih ID Rekam Medis ---" }));
+        cmb_rekam_medis.setBorder(null);
+        cmb_rekam_medis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_rekam_medisActionPerformed(evt);
+            }
+        });
+        menu_keluhan.add(cmb_rekam_medis);
+        cmb_rekam_medis.setBounds(40, 190, 380, 50);
+
+        bg_keluhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel Keluhan Pasien - Admin.png"))); // NOI18N
         menu_keluhan.add(bg_keluhan);
         bg_keluhan.setBounds(0, 0, 1276, 856);
 
         panel_content.add(menu_keluhan);
         menu_keluhan.setBounds(0, 0, 1276, 856);
 
-        menu_pendaftaran.setBackground(new java.awt.Color(102, 255, 0));
-        menu_pendaftaran.setLayout(null);
-
-        bg_pendaftaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Panel - Pendaftaran - Admin.png"))); // NOI18N
-        menu_pendaftaran.add(bg_pendaftaran);
-        bg_pendaftaran.setBounds(0, 0, 1276, 856);
-
-        panel_content.add(menu_pendaftaran);
-        menu_pendaftaran.setBounds(0, 0, 1276, 856);
-
         menu_rekammedis.setBackground(new java.awt.Color(102, 255, 0));
         menu_rekammedis.setLayout(null);
 
-        bg_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Panel - Rekam Medis - Admin.png"))); // NOI18N
+        bg_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel - Rekam Medis - Admin.png"))); // NOI18N
         menu_rekammedis.add(bg_rekammedis);
         bg_rekammedis.setBounds(0, 0, 1276, 856);
 
@@ -252,6 +444,113 @@ public class MainPage extends javax.swing.JFrame {
 //        }                  
 //    }
 //    
+    public void setJadwalByIdDokter(){
+        try {
+            String ID_Dokter = (String)cmb_dokter.getSelectedItem();
+            String sql = "select * from `tb_dokter` where id_dokter = '"+ID_Dokter+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            
+            while (res.next()) {
+                tf_jadwal_dokter.setText(res.getString(7));
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void setDokterByIdPoli(){
+        try {
+            String ID_Poli = (String)cmb_poli_tujuan.getSelectedItem();
+            String sql = "select * from `tb_dokter` where id_poli = '"+ID_Poli+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            cmb_dokter.removeAllItems();
+            while (res.next()) {
+                cmb_dokter.addItem(res.getString(1));
+                cmb_dokter.setSelectedItem(res.getString(1));
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void setDataByIdRM(){
+        try {
+            String ID_Rekam_Medis = (String)cmb_rekam_medis.getSelectedItem();
+            String sql = "select * from `tb_pasien` where id_rekam_medis = '"+ID_Rekam_Medis+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            
+            while (res.next()) {
+                tf_nama_lengkap_keluhan.setText(res.getString(2));
+                tf_nik_keluhan.setText(res.getString(4));
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void getComboRM(){
+        try {
+            String sql = "select * from `tb_pasien`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            
+            while (res.next()) {
+                cmb_rekam_medis.addItem(res.getString(1));
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void getComboPoli(){
+        try {
+            String sql = "select * from `tb_poli`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            
+            while (res.next()) {
+                cmb_poli_tujuan.addItem(res.getString(1));
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void getComboDokter(){
+        try {
+            String sql = "select * from `tb_dokter`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            
+            while (res.next()) {
+                cmb_dokter.addItem(res.getString(1));
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
     public static List<String[]> getData() {
         List<String[]> dataList = new ArrayList<>();
 
@@ -433,6 +732,72 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_clicked_link_keluhanMouseClicked
 
+    private void btn_simpan_pasienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_simpan_pasienMouseClicked
+       try {
+           
+            String sql = "INSERT INTO `tb_pasien` VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')";
+            java.sql.Connection conn = (Connection)config.configDB();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(jd_tanggal_lahir.getDate());
+            sql = String.format(
+                sql,
+                tf_id_pasien.getText(),
+                tf_nama_lengkap.getText(),
+                date,
+                tf_nik.getText(),
+                cmb_kelamin.getSelectedItem(),
+                cmb_status_pernikahan.getSelectedItem(),
+                cmb_agama.getSelectedItem(),
+                tf_nomor_telepon.getText(),
+                ta_alamat.getText(),
+                tf_no_bpjs.getText()
+            );
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
+        }
+    }//GEN-LAST:event_btn_simpan_pasienMouseClicked
+
+    private void tf_nikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nikActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nikActionPerformed
+
+    private void btn_simpan_keluhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_simpan_keluhanMouseClicked
+        try {
+           
+            String sql = "IINSERT INTO `tb_keluhan` VALUES ('%s','%s','%s','%s','%s','%s')";
+            java.sql.Connection conn = (Connection)config.configDB();
+            sql = String.format(
+                sql,
+                tf_id_keluhan.getText(),
+                cmb_rekam_medis.getSelectedItem(),
+                cmb_poli_tujuan.getSelectedItem(),
+                cmb_dokter.getSelectedItem(),
+                tf_jadwal_dokter.getText(),
+                ta_keluhan.getText()
+            );
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
+        }
+    }//GEN-LAST:event_btn_simpan_keluhanMouseClicked
+
+    private void cmb_rekam_medisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_rekam_medisActionPerformed
+        setDataByIdRM();
+    }//GEN-LAST:event_cmb_rekam_medisActionPerformed
+
+    private void cmb_dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_dokterActionPerformed
+        setJadwalByIdDokter();
+    }//GEN-LAST:event_cmb_dokterActionPerformed
+
+    private void cmb_poli_tujuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_poli_tujuanActionPerformed
+        setDokterByIdPoli();
+    }//GEN-LAST:event_cmb_poli_tujuanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -473,11 +838,25 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel bg_keluhan;
     private javax.swing.JLabel bg_pendaftaran;
     private javax.swing.JLabel bg_rekammedis;
+    private javax.swing.JLabel btn_simpan_keluhan;
+    private javax.swing.JLabel btn_simpan_pasien;
     private javax.swing.JLabel clicked_link_dashboard;
     private javax.swing.JLabel clicked_link_keluhan;
     private javax.swing.JLabel clicked_link_logout;
     private javax.swing.JLabel clicked_link_pasien;
     private javax.swing.JLabel clicked_link_rekammedis;
+    private javax.swing.JComboBox<String> cmb_agama;
+    private javax.swing.JComboBox<String> cmb_dokter;
+    private javax.swing.JComboBox<String> cmb_kelamin;
+    private javax.swing.JComboBox<String> cmb_poli;
+    private javax.swing.JComboBox<String> cmb_poli1;
+    private javax.swing.JComboBox<String> cmb_poli_tujuan;
+    private javax.swing.JComboBox<String> cmb_rekam_medis;
+    private javax.swing.JComboBox<String> cmb_status_pernikahan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private com.toedter.calendar.JDateChooser jd_tanggal_lahir;
     private javax.swing.JLabel lbl_jumlah_dokter;
     private javax.swing.JLabel lbl_jumlah_poli;
     private javax.swing.JLabel lbl_total_pasien;
@@ -493,5 +872,16 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel panel_content;
     private javax.swing.JPanel panel_sidebar;
     private javax.swing.JLabel sidebar;
+    private javax.swing.JTextArea ta_alamat;
+    private javax.swing.JTextArea ta_keluhan;
+    private javax.swing.JTextField tf_id_keluhan;
+    private javax.swing.JTextField tf_id_pasien;
+    private javax.swing.JTextField tf_jadwal_dokter;
+    private javax.swing.JTextField tf_nama_lengkap;
+    private javax.swing.JTextField tf_nama_lengkap_keluhan;
+    private javax.swing.JTextField tf_nik;
+    private javax.swing.JTextField tf_nik_keluhan;
+    private javax.swing.JTextField tf_no_bpjs;
+    private javax.swing.JTextField tf_nomor_telepon;
     // End of variables declaration//GEN-END:variables
 }
