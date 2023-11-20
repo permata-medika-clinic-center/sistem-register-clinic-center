@@ -46,6 +46,9 @@ public class MainPage extends javax.swing.JFrame {
         setJumlahPasien();
         getComboRM();
         getComboPoli();
+        getDataRekamMedis();
+        getIDKeluhanOtomatis();
+        getIDRekamMedis();
     }
 
     /**
@@ -76,7 +79,6 @@ public class MainPage extends javax.swing.JFrame {
         lbl_total_pasien = new javax.swing.JLabel();
         bg_dashboard = new javax.swing.JLabel();
         menu_pendaftaran = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         tf_id_pasien = new javax.swing.JTextField();
         btn_simpan_pasien = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -105,6 +107,8 @@ public class MainPage extends javax.swing.JFrame {
         cmb_rekam_medis = new javax.swing.JComboBox<>();
         bg_keluhan = new javax.swing.JLabel();
         menu_rekammedis = new javax.swing.JPanel();
+        jscroll_tabel_rekam_medis = new javax.swing.JScrollPane();
+        tabel_rekam_medis = new javax.swing.JTable();
         bg_rekammedis = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -214,21 +218,21 @@ public class MainPage extends javax.swing.JFrame {
         lbl_jumlah_poli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_jumlah_poli.setText("0");
         menu_dashboard.add(lbl_jumlah_poli);
-        lbl_jumlah_poli.setBounds(1010, 230, 36, 100);
+        lbl_jumlah_poli.setBounds(976, 230, 140, 100);
 
         lbl_jumlah_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 64)); // NOI18N
         lbl_jumlah_dokter.setForeground(new java.awt.Color(255, 255, 255));
         lbl_jumlah_dokter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_jumlah_dokter.setText("0");
         menu_dashboard.add(lbl_jumlah_dokter);
-        lbl_jumlah_dokter.setBounds(640, 230, 36, 100);
+        lbl_jumlah_dokter.setBounds(596, 230, 170, 100);
 
         lbl_total_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 64)); // NOI18N
         lbl_total_pasien.setForeground(new java.awt.Color(255, 255, 255));
         lbl_total_pasien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_total_pasien.setText("0");
         menu_dashboard.add(lbl_total_pasien);
-        lbl_total_pasien.setBounds(280, 230, 36, 100);
+        lbl_total_pasien.setBounds(246, 230, 150, 100);
 
         bg_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel - Dashboard - Admin.png"))); // NOI18N
         menu_dashboard.add(bg_dashboard);
@@ -240,15 +244,12 @@ public class MainPage extends javax.swing.JFrame {
         menu_pendaftaran.setBackground(new java.awt.Color(102, 255, 0));
         menu_pendaftaran.setLayout(null);
 
-        jLabel1.setText("isi id pasien");
-        menu_pendaftaran.add(jLabel1);
-        jLabel1.setBounds(170, 490, 100, 17);
-
         tf_id_pasien.setBackground(new Color(0,0,0,0));
         tf_id_pasien.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_id_pasien.setBorder(null);
+        tf_id_pasien.setEnabled(false);
         menu_pendaftaran.add(tf_id_pasien);
-        tf_id_pasien.setBounds(40, 520, 340, 50);
+        tf_id_pasien.setBounds(50, 188, 340, 50);
 
         btn_simpan_pasien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -266,7 +267,7 @@ public class MainPage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ta_alamat);
 
         menu_pendaftaran.add(jScrollPane1);
-        jScrollPane1.setBounds(470, 480, 350, 100);
+        jScrollPane1.setBounds(470, 470, 350, 100);
         menu_pendaftaran.add(jd_tanggal_lahir);
         jd_tanggal_lahir.setBounds(870, 190, 380, 50);
 
@@ -280,7 +281,7 @@ public class MainPage extends javax.swing.JFrame {
         tf_nomor_telepon.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_nomor_telepon.setBorder(null);
         menu_pendaftaran.add(tf_nomor_telepon);
-        tf_nomor_telepon.setBounds(50, 285, 340, 50);
+        tf_nomor_telepon.setBounds(50, 376, 340, 50);
 
         tf_nik.setBackground(new Color(0,0,0,0));
         tf_nik.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -297,7 +298,7 @@ public class MainPage extends javax.swing.JFrame {
         tf_nama_lengkap.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_nama_lengkap.setBorder(null);
         menu_pendaftaran.add(tf_nama_lengkap);
-        tf_nama_lengkap.setBounds(50, 188, 340, 50);
+        tf_nama_lengkap.setBounds(50, 282, 340, 50);
 
         cmb_kelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Kelamin ---", "Laki - Laki", "Perempuan" }));
         cmb_kelamin.setBorder(null);
@@ -317,7 +318,7 @@ public class MainPage extends javax.swing.JFrame {
         cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---", "Belum Nikah", "Sudah Nikah" }));
         cmb_poli.setBorder(null);
         menu_pendaftaran.add(cmb_poli);
-        cmb_poli.setBounds(30, 390, 380, 50);
+        cmb_poli.setBounds(30, 480, 380, 50);
 
         bg_pendaftaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel Pendaftaran - Admin.png"))); // NOI18N
         menu_pendaftaran.add(bg_pendaftaran);
@@ -337,8 +338,9 @@ public class MainPage extends javax.swing.JFrame {
         tf_id_keluhan.setBackground(new Color(0,0,0,0));
         tf_id_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_id_keluhan.setBorder(null);
+        tf_id_keluhan.setEnabled(false);
         menu_keluhan.add(tf_id_keluhan);
-        tf_id_keluhan.setBounds(50, 400, 340, 50);
+        tf_id_keluhan.setBounds(470, 190, 330, 50);
 
         btn_simpan_keluhan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -346,7 +348,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         menu_keluhan.add(btn_simpan_keluhan);
-        btn_simpan_keluhan.setBounds(520, 530, 110, 40);
+        btn_simpan_keluhan.setBounds(520, 382, 110, 40);
 
         ta_keluhan.setColumns(20);
         ta_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -361,20 +363,25 @@ public class MainPage extends javax.swing.JFrame {
         tf_jadwal_dokter.setBackground(new Color(0,0,0,0));
         tf_jadwal_dokter.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_jadwal_dokter.setBorder(null);
+        tf_jadwal_dokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_jadwal_dokterActionPerformed(evt);
+            }
+        });
         menu_keluhan.add(tf_jadwal_dokter);
-        tf_jadwal_dokter.setBounds(890, 290, 340, 50);
+        tf_jadwal_dokter.setBounds(50, 380, 340, 50);
 
         tf_nik_keluhan.setBackground(new Color(0,0,0,0));
         tf_nik_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_nik_keluhan.setBorder(null);
         menu_keluhan.add(tf_nik_keluhan);
-        tf_nik_keluhan.setBounds(890, 190, 340, 50);
+        tf_nik_keluhan.setBounds(50, 276, 340, 50);
 
         tf_nama_lengkap_keluhan.setBackground(new Color(0,0,0,0));
         tf_nama_lengkap_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_nama_lengkap_keluhan.setBorder(null);
         menu_keluhan.add(tf_nama_lengkap_keluhan);
-        tf_nama_lengkap_keluhan.setBounds(480, 190, 340, 50);
+        tf_nama_lengkap_keluhan.setBounds(890, 190, 340, 50);
 
         cmb_dokter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Dokter ---" }));
         cmb_dokter.setBorder(null);
@@ -384,7 +391,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         menu_keluhan.add(cmb_dokter);
-        cmb_dokter.setBounds(450, 286, 380, 50);
+        cmb_dokter.setBounds(870, 280, 380, 50);
 
         cmb_poli_tujuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---" }));
         cmb_poli_tujuan.setBorder(null);
@@ -394,7 +401,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         menu_keluhan.add(cmb_poli_tujuan);
-        cmb_poli_tujuan.setBounds(40, 288, 380, 50);
+        cmb_poli_tujuan.setBounds(450, 280, 380, 50);
 
         cmb_rekam_medis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih ID Rekam Medis ---" }));
         cmb_rekam_medis.setBorder(null);
@@ -404,7 +411,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         menu_keluhan.add(cmb_rekam_medis);
-        cmb_rekam_medis.setBounds(40, 190, 380, 50);
+        cmb_rekam_medis.setBounds(30, 190, 380, 50);
 
         bg_keluhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel Keluhan Pasien - Admin.png"))); // NOI18N
         menu_keluhan.add(bg_keluhan);
@@ -415,6 +422,24 @@ public class MainPage extends javax.swing.JFrame {
 
         menu_rekammedis.setBackground(new java.awt.Color(102, 255, 0));
         menu_rekammedis.setLayout(null);
+
+        tabel_rekam_medis.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tabel_rekam_medis.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nomor RM", "Nama", "Alamat", "Tanggal", "Layanan", "Aksi"
+            }
+        ));
+        tabel_rekam_medis.setRowHeight(40);
+        jscroll_tabel_rekam_medis.setViewportView(tabel_rekam_medis);
+
+        menu_rekammedis.add(jscroll_tabel_rekam_medis);
+        jscroll_tabel_rekam_medis.setBounds(100, 310, 1080, 460);
 
         bg_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel - Rekam Medis - Admin.png"))); // NOI18N
         menu_rekammedis.add(bg_rekammedis);
@@ -444,6 +469,89 @@ public class MainPage extends javax.swing.JFrame {
 //        }                  
 //    }
 //    
+    
+    public void getIDKeluhanOtomatis(){
+        try {
+            String sql = "select id_keluhan from `tb_keluhan`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            String lastNumber = null;
+            while (res.next()) {
+              lastNumber  = res.getString(1);
+            };
+            
+            String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
+            int lastNumbers = Integer.parseInt(twoLastChars);
+            int newID = lastNumbers + 1;
+            if(newID >= 10){
+                tf_id_keluhan.setText("IDKE" + newID);
+            }else{
+                tf_id_keluhan.setText("IDKE0" + newID);
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void getIDRekamMedis(){
+        try {
+            String sql = "select id_rekam_medis from `tb_pasien`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            String lastNumber = null;
+            while (res.next()) {
+              lastNumber  = res.getString(1);
+            };
+            
+            String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
+            int lastNumbers = Integer.parseInt(twoLastChars);
+            int newID = lastNumbers + 1;
+            if(newID >= 10){
+                tf_id_pasien.setText("IDP0" + newID);
+            }else{
+                tf_id_pasien.setText("IDP00" + newID);
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void getDataRekamMedis(){
+        try {
+            String sql = "SELECT tb_keluhan.id_rekam_medis, tb_pasien.nama, tb_pasien.alamat, tb_keluhan.tanggal_pemeriksaan ,tb_keluhan.layanan FROM tb_keluhan JOIN tb_pasien ON tb_keluhan.id_rekam_medis = tb_pasien.id_rekam_medis;";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            DefaultTableModel tbl = new DefaultTableModel();
+            tbl.addColumn("Nomor RM");
+            tbl.addColumn("Nama");
+            tbl.addColumn("Alamat");
+            tbl.addColumn("Tanggal Kontrol");
+            tbl.addColumn("Layanan");
+            tbl.addColumn("Aksi");
+            tabel_rekam_medis.setModel(tbl);
+            
+            while (res.next()) {
+                tbl.addRow(new Object[]{
+                    res.getString(1),
+                    res.getString(2),
+                    res.getString(3),
+                    res.getString(4),
+                    res.getString(5)
+                });
+                tabel_rekam_medis.setModel(tbl);
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
     public void setJadwalByIdDokter(){
         try {
             String ID_Dokter = (String)cmb_dokter.getSelectedItem();
@@ -541,7 +649,6 @@ public class MainPage extends javax.swing.JFrame {
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
 
-            
             while (res.next()) {
                 cmb_dokter.addItem(res.getString(1));
             };
@@ -767,16 +874,15 @@ public class MainPage extends javax.swing.JFrame {
     private void btn_simpan_keluhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_simpan_keluhanMouseClicked
         try {
            
-            String sql = "IINSERT INTO `tb_keluhan` VALUES ('%s','%s','%s','%s','%s','%s')";
+            String sql = "INSERT INTO `tb_keluhan`(`id_keluhan`, `id_rekam_medis`, `id_poli`, `keluhan`, `id_dokter`) VALUES ('%s','%s','%s','%s','%s')";
             java.sql.Connection conn = (Connection)config.configDB();
             sql = String.format(
                 sql,
                 tf_id_keluhan.getText(),
                 cmb_rekam_medis.getSelectedItem(),
                 cmb_poli_tujuan.getSelectedItem(),
-                cmb_dokter.getSelectedItem(),
-                tf_jadwal_dokter.getText(),
-                ta_keluhan.getText()
+                ta_keluhan.getText(),
+                cmb_dokter.getSelectedItem()
             );
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
@@ -797,6 +903,10 @@ public class MainPage extends javax.swing.JFrame {
     private void cmb_poli_tujuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_poli_tujuanActionPerformed
         setDokterByIdPoli();
     }//GEN-LAST:event_cmb_poli_tujuanActionPerformed
+
+    private void tf_jadwal_dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_jadwal_dokterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_jadwal_dokterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -853,10 +963,10 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_poli_tujuan;
     private javax.swing.JComboBox<String> cmb_rekam_medis;
     private javax.swing.JComboBox<String> cmb_status_pernikahan;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JDateChooser jd_tanggal_lahir;
+    private javax.swing.JScrollPane jscroll_tabel_rekam_medis;
     private javax.swing.JLabel lbl_jumlah_dokter;
     private javax.swing.JLabel lbl_jumlah_poli;
     private javax.swing.JLabel lbl_total_pasien;
@@ -874,6 +984,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel sidebar;
     private javax.swing.JTextArea ta_alamat;
     private javax.swing.JTextArea ta_keluhan;
+    private javax.swing.JTable tabel_rekam_medis;
     private javax.swing.JTextField tf_id_keluhan;
     private javax.swing.JTextField tf_id_pasien;
     private javax.swing.JTextField tf_jadwal_dokter;
