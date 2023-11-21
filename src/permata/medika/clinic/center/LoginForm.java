@@ -4,6 +4,8 @@
  */
 package permata.medika.clinic.center;
 import java.awt.Color;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -117,9 +119,41 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_masukMouseClicked
 
     private void btn_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMouseClicked
-        MainPage halaman = new MainPage();
-        halaman.setVisible(true);
-        this.setVisible(false);
+        try {
+            String username = tf_username.getText();
+            String password = tf_password.getText();
+            
+            String sql = "select * from `tb_karyawan` where id_karyawan='"+username+"' AND password='"+password+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if (res.next()) {
+                
+                String rule = res.getString(8);
+                System.out.println(rule);
+                if(rule.equals("admin")){
+                    MainPage halaman = new MainPage();
+                    halaman.getViewAdmin();
+                    halaman.setVisible(true);
+                    this.setVisible(false);
+                }else if(rule.equals("owner")){
+                    MainPage halaman = new MainPage();
+                    halaman.getViewOwner();
+                    halaman.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(this, "rule tidak ada");
+                }
+                
+            }else{
+                JOptionPane.showMessageDialog(this, "gagal");
+            }
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+        
     }//GEN-LAST:event_btn_loginMouseClicked
 
     private void bg_login1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bg_login1MouseClicked
