@@ -31,20 +31,30 @@ public class MainPage extends javax.swing.JFrame {
     public MainPage() {
         initComponents();
         
- 
+        //pemanggilan jumlah di dashboard
         setJumlahDokter();
         setJumlahPoli();
         setJumlahPasien();
         setJumlahKaryawan();
+        
+        //pemanggilan isi combobox dari db
         getComboRM();
         getComboPoli();
+        
+        //pemanggilan data table
         getDataRekamMedis();
+        getDataKaryawan();
+        getDataDokter();
+        
+        //pemanggilan id otomatis
         getIDKeluhanOtomatis();
         getIDRekamMedis();
         getIDKaryawan();
-        getDataDokter();
+        
         panel_tambah_dokter.setVisible(false);
         panel_edit_dokter.setVisible(false);
+        panel_tambah_karyawan.setVisible(false);
+        panel_edit_karyawan.setVisible(false);
     }
 
     /**
@@ -115,13 +125,28 @@ public class MainPage extends javax.swing.JFrame {
         tf_id_dokter = new javax.swing.JTextField();
         btn_batal_tambah_dokter = new javax.swing.JLabel();
         bg_tambah_dokter = new javax.swing.JLabel();
-        jscroll_tabel_rekam_medis2 = new javax.swing.JScrollPane();
+        jscroll_tabel_dokter = new javax.swing.JScrollPane();
         tabel_dokter = new javax.swing.JTable();
         btn_hapus_dokter = new javax.swing.JLabel();
         btn_tambah_dokter = new javax.swing.JLabel();
         btn_edit_dokter = new javax.swing.JLabel();
         bg_dashboard3 = new javax.swing.JLabel();
         owner_karyawan = new javax.swing.JPanel();
+        panel_edit_karyawan = new javax.swing.JPanel();
+        tf_password_karyawan_edit = new javax.swing.JTextField();
+        tf_no_karyawan_edit = new javax.swing.JTextField();
+        tf_username_karyawan_edit = new javax.swing.JTextField();
+        tf_nik_karyawan_edit = new javax.swing.JTextField();
+        tf_id_karyawan_edit = new javax.swing.JTextField();
+        tf_nama_karyawan_edit = new javax.swing.JTextField();
+        cmb_jenis_kelamin_karyawan_edit = new javax.swing.JComboBox<>();
+        btn_batal_karyawan_edit = new javax.swing.JLabel();
+        btn_tambah_karyawan_edit = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ta_alamat_karyawan_edit = new javax.swing.JTextArea();
+        tanggal_lahir_edit = new com.toedter.calendar.JDateChooser();
+        bg_edit_karyawan = new javax.swing.JLabel();
+        panel_tambah_karyawan = new javax.swing.JPanel();
         tf_password_karyawan = new javax.swing.JTextField();
         tf_no_karyawan = new javax.swing.JTextField();
         tf_username_karyawan = new javax.swing.JTextField();
@@ -129,11 +154,18 @@ public class MainPage extends javax.swing.JFrame {
         tf_id_karyawan = new javax.swing.JTextField();
         tf_nama_karyawan = new javax.swing.JTextField();
         cmb_jenis_kelamin_karyawan = new javax.swing.JComboBox<>();
+        btn_batal_karyawan = new javax.swing.JLabel();
         btn_tambah_karyawan = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ta_alamat_karyawan = new javax.swing.JTextArea();
         tanggal_lahir = new com.toedter.calendar.JDateChooser();
         bg_dashboard2 = new javax.swing.JLabel();
+        jscroll_tabel_karyawan = new javax.swing.JScrollPane();
+        tabel_karyawan = new javax.swing.JTable();
+        btn_hapus_karyawan = new javax.swing.JLabel();
+        btn_tambah_karyawan_owner = new javax.swing.JLabel();
+        btn_edit_karyawan = new javax.swing.JLabel();
+        bg_karyawan_owner = new javax.swing.JLabel();
         owner_dashboard = new javax.swing.JPanel();
         lbl_jumlah_pegawai_owner = new javax.swing.JLabel();
         lbl_jumlah_poli_owner = new javax.swing.JLabel();
@@ -600,10 +632,10 @@ public class MainPage extends javax.swing.JFrame {
             }
         ));
         tabel_dokter.setRowHeight(40);
-        jscroll_tabel_rekam_medis2.setViewportView(tabel_dokter);
+        jscroll_tabel_dokter.setViewportView(tabel_dokter);
 
-        owner_dokter.add(jscroll_tabel_rekam_medis2);
-        jscroll_tabel_rekam_medis2.setBounds(100, 310, 1080, 460);
+        owner_dokter.add(jscroll_tabel_dokter);
+        jscroll_tabel_dokter.setBounds(100, 310, 1080, 460);
 
         btn_hapus_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -639,6 +671,126 @@ public class MainPage extends javax.swing.JFrame {
         owner_karyawan.setBackground(new java.awt.Color(102, 255, 0));
         owner_karyawan.setLayout(null);
 
+        panel_edit_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panel_edit_karyawanMouseEntered(evt);
+            }
+        });
+        panel_edit_karyawan.setLayout(null);
+
+        tf_password_karyawan_edit.setBackground(new Color(0,0,0,0));
+        tf_password_karyawan_edit.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_password_karyawan_edit.setBorder(null);
+        tf_password_karyawan_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_password_karyawan_editActionPerformed(evt);
+            }
+        });
+        panel_edit_karyawan.add(tf_password_karyawan_edit);
+        tf_password_karyawan_edit.setBounds(260, 520, 340, 50);
+
+        tf_no_karyawan_edit.setBackground(new Color(0,0,0,0));
+        tf_no_karyawan_edit.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_no_karyawan_edit.setBorder(null);
+        tf_no_karyawan_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_no_karyawan_editActionPerformed(evt);
+            }
+        });
+        panel_edit_karyawan.add(tf_no_karyawan_edit);
+        tf_no_karyawan_edit.setBounds(680, 430, 340, 50);
+
+        tf_username_karyawan_edit.setBackground(new Color(0,0,0,0));
+        tf_username_karyawan_edit.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_username_karyawan_edit.setBorder(null);
+        tf_username_karyawan_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_username_karyawan_editActionPerformed(evt);
+            }
+        });
+        panel_edit_karyawan.add(tf_username_karyawan_edit);
+        tf_username_karyawan_edit.setBounds(260, 430, 340, 50);
+
+        tf_nik_karyawan_edit.setBackground(new Color(0,0,0,0));
+        tf_nik_karyawan_edit.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_nik_karyawan_edit.setBorder(null);
+        tf_nik_karyawan_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_nik_karyawan_editActionPerformed(evt);
+            }
+        });
+        panel_edit_karyawan.add(tf_nik_karyawan_edit);
+        tf_nik_karyawan_edit.setBounds(260, 350, 340, 50);
+
+        tf_id_karyawan_edit.setBackground(new Color(0,0,0,0));
+        tf_id_karyawan_edit.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_id_karyawan_edit.setBorder(null);
+        tf_id_karyawan_edit.setEnabled(false);
+        tf_id_karyawan_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_id_karyawan_editActionPerformed(evt);
+            }
+        });
+        panel_edit_karyawan.add(tf_id_karyawan_edit);
+        tf_id_karyawan_edit.setBounds(680, 260, 340, 50);
+
+        tf_nama_karyawan_edit.setBackground(new Color(0,0,0,0));
+        tf_nama_karyawan_edit.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_nama_karyawan_edit.setBorder(null);
+        tf_nama_karyawan_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_nama_karyawan_editActionPerformed(evt);
+            }
+        });
+        panel_edit_karyawan.add(tf_nama_karyawan_edit);
+        tf_nama_karyawan_edit.setBounds(260, 260, 340, 50);
+
+        cmb_jenis_kelamin_karyawan_edit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Jenis Kelamin ---", "laki-laki", "perempuan" }));
+        cmb_jenis_kelamin_karyawan_edit.setBorder(null);
+        panel_edit_karyawan.add(cmb_jenis_kelamin_karyawan_edit);
+        cmb_jenis_kelamin_karyawan_edit.setBounds(240, 610, 380, 50);
+
+        btn_batal_karyawan_edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_batal_karyawan_editMouseClicked(evt);
+            }
+        });
+        panel_edit_karyawan.add(btn_batal_karyawan_edit);
+        btn_batal_karyawan_edit.setBounds(650, 730, 130, 40);
+
+        btn_tambah_karyawan_edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tambah_karyawan_editMouseClicked(evt);
+            }
+        });
+        panel_edit_karyawan.add(btn_tambah_karyawan_edit);
+        btn_tambah_karyawan_edit.setBounds(500, 730, 130, 40);
+
+        ta_alamat_karyawan_edit.setBackground(new Color(0,0,0,0));
+        ta_alamat_karyawan_edit.setColumns(20);
+        ta_alamat_karyawan_edit.setRows(5);
+        ta_alamat_karyawan_edit.setBorder(null);
+        jScrollPane6.setViewportView(ta_alamat_karyawan_edit);
+
+        panel_edit_karyawan.add(jScrollPane6);
+        jScrollPane6.setBounds(680, 520, 340, 100);
+        panel_edit_karyawan.add(tanggal_lahir_edit);
+        tanggal_lahir_edit.setBounds(660, 350, 380, 50);
+
+        bg_edit_karyawan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Edit Karyawan - Pemilik.png"))); // NOI18N
+        panel_edit_karyawan.add(bg_edit_karyawan);
+        bg_edit_karyawan.setBounds(0, 0, 1276, 856);
+
+        owner_karyawan.add(panel_edit_karyawan);
+        panel_edit_karyawan.setBounds(0, 0, 1280, 870);
+
+        panel_tambah_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panel_tambah_karyawanMouseEntered(evt);
+            }
+        });
+        panel_tambah_karyawan.setLayout(null);
+
         tf_password_karyawan.setBackground(new Color(0,0,0,0));
         tf_password_karyawan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_password_karyawan.setBorder(null);
@@ -647,7 +799,7 @@ public class MainPage extends javax.swing.JFrame {
                 tf_password_karyawanActionPerformed(evt);
             }
         });
-        owner_karyawan.add(tf_password_karyawan);
+        panel_tambah_karyawan.add(tf_password_karyawan);
         tf_password_karyawan.setBounds(260, 520, 340, 50);
 
         tf_no_karyawan.setBackground(new Color(0,0,0,0));
@@ -658,7 +810,7 @@ public class MainPage extends javax.swing.JFrame {
                 tf_no_karyawanActionPerformed(evt);
             }
         });
-        owner_karyawan.add(tf_no_karyawan);
+        panel_tambah_karyawan.add(tf_no_karyawan);
         tf_no_karyawan.setBounds(680, 430, 340, 50);
 
         tf_username_karyawan.setBackground(new Color(0,0,0,0));
@@ -669,7 +821,7 @@ public class MainPage extends javax.swing.JFrame {
                 tf_username_karyawanActionPerformed(evt);
             }
         });
-        owner_karyawan.add(tf_username_karyawan);
+        panel_tambah_karyawan.add(tf_username_karyawan);
         tf_username_karyawan.setBounds(260, 430, 340, 50);
 
         tf_nik_karyawan.setBackground(new Color(0,0,0,0));
@@ -680,7 +832,7 @@ public class MainPage extends javax.swing.JFrame {
                 tf_nik_karyawanActionPerformed(evt);
             }
         });
-        owner_karyawan.add(tf_nik_karyawan);
+        panel_tambah_karyawan.add(tf_nik_karyawan);
         tf_nik_karyawan.setBounds(260, 350, 340, 50);
 
         tf_id_karyawan.setBackground(new Color(0,0,0,0));
@@ -692,7 +844,7 @@ public class MainPage extends javax.swing.JFrame {
                 tf_id_karyawanActionPerformed(evt);
             }
         });
-        owner_karyawan.add(tf_id_karyawan);
+        panel_tambah_karyawan.add(tf_id_karyawan);
         tf_id_karyawan.setBounds(680, 260, 340, 50);
 
         tf_nama_karyawan.setBackground(new Color(0,0,0,0));
@@ -703,20 +855,28 @@ public class MainPage extends javax.swing.JFrame {
                 tf_nama_karyawanActionPerformed(evt);
             }
         });
-        owner_karyawan.add(tf_nama_karyawan);
+        panel_tambah_karyawan.add(tf_nama_karyawan);
         tf_nama_karyawan.setBounds(260, 260, 340, 50);
 
         cmb_jenis_kelamin_karyawan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Jenis Kelamin ---", "laki-laki", "perempuan" }));
         cmb_jenis_kelamin_karyawan.setBorder(null);
-        owner_karyawan.add(cmb_jenis_kelamin_karyawan);
+        panel_tambah_karyawan.add(cmb_jenis_kelamin_karyawan);
         cmb_jenis_kelamin_karyawan.setBounds(240, 610, 380, 50);
+
+        btn_batal_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_batal_karyawanMouseClicked(evt);
+            }
+        });
+        panel_tambah_karyawan.add(btn_batal_karyawan);
+        btn_batal_karyawan.setBounds(650, 730, 130, 40);
 
         btn_tambah_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_tambah_karyawanMouseClicked(evt);
             }
         });
-        owner_karyawan.add(btn_tambah_karyawan);
+        panel_tambah_karyawan.add(btn_tambah_karyawan);
         btn_tambah_karyawan.setBounds(500, 730, 130, 40);
 
         ta_alamat_karyawan.setBackground(new Color(0,0,0,0));
@@ -725,14 +885,63 @@ public class MainPage extends javax.swing.JFrame {
         ta_alamat_karyawan.setBorder(null);
         jScrollPane3.setViewportView(ta_alamat_karyawan);
 
-        owner_karyawan.add(jScrollPane3);
+        panel_tambah_karyawan.add(jScrollPane3);
         jScrollPane3.setBounds(680, 520, 340, 100);
-        owner_karyawan.add(tanggal_lahir);
+        panel_tambah_karyawan.add(tanggal_lahir);
         tanggal_lahir.setBounds(660, 350, 380, 50);
 
         bg_dashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Karyawan -  Pemilik.png"))); // NOI18N
-        owner_karyawan.add(bg_dashboard2);
+        panel_tambah_karyawan.add(bg_dashboard2);
         bg_dashboard2.setBounds(0, 0, 1276, 856);
+
+        owner_karyawan.add(panel_tambah_karyawan);
+        panel_tambah_karyawan.setBounds(0, 0, 1280, 870);
+
+        tabel_karyawan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tabel_karyawan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID Dokter", "Nama Dokter", "Jenis Kelamin", "Jadwal", "Nama Poli"
+            }
+        ));
+        tabel_karyawan.setRowHeight(40);
+        jscroll_tabel_karyawan.setViewportView(tabel_karyawan);
+
+        owner_karyawan.add(jscroll_tabel_karyawan);
+        jscroll_tabel_karyawan.setBounds(100, 310, 1080, 460);
+
+        btn_hapus_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_hapus_karyawanMouseClicked(evt);
+            }
+        });
+        owner_karyawan.add(btn_hapus_karyawan);
+        btn_hapus_karyawan.setBounds(700, 180, 140, 60);
+
+        btn_tambah_karyawan_owner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tambah_karyawan_ownerMouseClicked(evt);
+            }
+        });
+        owner_karyawan.add(btn_tambah_karyawan_owner);
+        btn_tambah_karyawan_owner.setBounds(330, 180, 180, 60);
+
+        btn_edit_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_edit_karyawanMouseClicked(evt);
+            }
+        });
+        owner_karyawan.add(btn_edit_karyawan);
+        btn_edit_karyawan.setBounds(530, 180, 140, 60);
+
+        bg_karyawan_owner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Pegawai - Pemilik.png"))); // NOI18N
+        owner_karyawan.add(bg_karyawan_owner);
+        bg_karyawan_owner.setBounds(0, 0, 1276, 856);
 
         panel_content.add(owner_karyawan);
         owner_karyawan.setBounds(0, 0, 1276, 856);
@@ -1194,6 +1403,37 @@ public class MainPage extends javax.swing.JFrame {
                     res.getString(8)
                 });
                 tabel_dokter.setModel(tbl);
+            };
+            
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void getDataKaryawan(){
+        try {
+            String sql = "SELECT * FROM tb_karyawan";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+
+            DefaultTableModel tbl = new DefaultTableModel();
+            tbl.addColumn("ID Karyawan");
+            tbl.addColumn("Nama Karyawan");
+            tbl.addColumn("Tempat Tanggal Lahir");
+            tbl.addColumn("NIK Karyawan");
+            tbl.addColumn("Jenis Kelamin");
+            tbl.addColumn("Alamat");
+            
+            while (res.next()) {
+                tbl.addRow(new Object[]{
+                    res.getString(1),
+                    res.getString(2),
+                    res.getString(3),
+                    res.getString(4),
+                    res.getString(5)
+                });
+                tabel_karyawan.setModel(tbl);
             };
             
         } catch (Exception e) {
@@ -1858,6 +2098,122 @@ public class MainPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_hapus_dokterMouseClicked
 
+    private void tf_password_karyawan_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_password_karyawan_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_password_karyawan_editActionPerformed
+
+    private void tf_no_karyawan_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_no_karyawan_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_no_karyawan_editActionPerformed
+
+    private void tf_username_karyawan_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_username_karyawan_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_username_karyawan_editActionPerformed
+
+    private void tf_nik_karyawan_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nik_karyawan_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nik_karyawan_editActionPerformed
+
+    private void tf_id_karyawan_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_karyawan_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_id_karyawan_editActionPerformed
+
+    private void tf_nama_karyawan_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_nama_karyawan_editActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nama_karyawan_editActionPerformed
+
+    private void btn_tambah_karyawan_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tambah_karyawan_editMouseClicked
+        try {
+            String sql = "UPDATE `tb_karyawan` SET nama_karyawan = '%s', ttl = '%s', nik = '%s', jenis_kelamin = '%s', alamat = '%s', password = '%s' where id_karyawan = '%s'";
+            java.sql.Connection conn = (Connection)config.configDB();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(tanggal_lahir_edit.getDate());
+            sql = String.format(
+                sql,
+                tf_nama_karyawan_edit.getText(),
+                date,
+                tf_nik_karyawan_edit.getText(),
+                cmb_jenis_kelamin_karyawan_edit.getSelectedItem(),
+                ta_alamat_karyawan_edit.getText(),
+                tf_password_karyawan_edit.getText(),
+                tf_id_karyawan_edit.getText()
+            );
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            panel_edit_karyawan.setVisible(false);
+            getDataKaryawan();
+            JOptionPane.showMessageDialog(null, "Data berhasil terupdate");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
+        }
+    }//GEN-LAST:event_btn_tambah_karyawan_editMouseClicked
+
+    private void btn_hapus_karyawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_hapus_karyawanMouseClicked
+         try {
+            int row =tabel_karyawan.getSelectedRow();
+            String id_karyawan =(tabel_karyawan.getModel().getValueAt(row, 0).toString());
+            String sql = "DELETE FROM `tb_karyawan` where id_karyawan = '"+id_karyawan+"'";
+            java.sql.Connection conn = (Connection)config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            getDataKaryawan();
+            JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
+        }
+    }//GEN-LAST:event_btn_hapus_karyawanMouseClicked
+
+    private void btn_tambah_karyawan_ownerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tambah_karyawan_ownerMouseClicked
+        panel_tambah_karyawan.setVisible(true);
+    }//GEN-LAST:event_btn_tambah_karyawan_ownerMouseClicked
+
+    private void btn_edit_karyawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_edit_karyawanMouseClicked
+        int row =tabel_karyawan.getSelectedRow();
+        String id_karyawan =(tabel_karyawan.getModel().getValueAt(row, 0).toString());
+        try {
+            String sql = "SELECT * FROM `tb_karyawan` where id_karyawan = '"+id_karyawan+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if(res.next()){
+//               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//                Date date = sdf.format(res.getString(3));
+                String date = res.getString(3);  
+                Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);  
+                
+                tf_id_karyawan_edit.setText(res.getString(1));
+                tf_nama_karyawan_edit.setText(res.getString(2));
+                tanggal_lahir_edit.setDate(date1);
+                tf_nik_karyawan_edit.setText(res.getString(4));
+                cmb_jenis_kelamin_karyawan_edit.setSelectedItem(res.getString(5));
+                ta_alamat_karyawan_edit.setText(res.getString(6));
+                tf_password_karyawan_edit.setText(res.getString(7));
+                panel_edit_karyawan.setVisible(true);
+            }else{
+                System.out.println("tidak ada data");
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_btn_edit_karyawanMouseClicked
+
+    private void panel_tambah_karyawanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_tambah_karyawanMouseEntered
+        panel_tambah_karyawan.setVisible(true);
+    }//GEN-LAST:event_panel_tambah_karyawanMouseEntered
+
+    private void panel_edit_karyawanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_edit_karyawanMouseEntered
+        panel_edit_karyawan.setVisible(true);
+    }//GEN-LAST:event_panel_edit_karyawanMouseEntered
+
+    private void btn_batal_karyawan_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_batal_karyawan_editMouseClicked
+        panel_edit_karyawan.setVisible(false);
+    }//GEN-LAST:event_btn_batal_karyawan_editMouseClicked
+
+    private void btn_batal_karyawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_batal_karyawanMouseClicked
+        panel_tambah_karyawan.setVisible(false);
+    }//GEN-LAST:event_btn_batal_karyawanMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1901,6 +2257,8 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel bg_dashboard2;
     private javax.swing.JLabel bg_dashboard3;
     private javax.swing.JLabel bg_dashboard4;
+    private javax.swing.JLabel bg_edit_karyawan;
+    private javax.swing.JLabel bg_karyawan_owner;
     private javax.swing.JLabel bg_keluhan;
     private javax.swing.JLabel bg_pendaftaran;
     private javax.swing.JLabel bg_rekammedis;
@@ -1908,15 +2266,21 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel bg_sidebar_owner;
     private javax.swing.JLabel bg_tambah_dokter;
     private javax.swing.JLabel bg_tambah_dokter1;
+    private javax.swing.JLabel btn_batal_karyawan;
+    private javax.swing.JLabel btn_batal_karyawan_edit;
     private javax.swing.JLabel btn_batal_tambah_dokter;
     private javax.swing.JLabel btn_batal_tambah_dokter1;
     private javax.swing.JLabel btn_edit_dokter;
+    private javax.swing.JLabel btn_edit_karyawan;
     private javax.swing.JLabel btn_hapus_dokter;
+    private javax.swing.JLabel btn_hapus_karyawan;
     private javax.swing.JLabel btn_input_dokter;
     private javax.swing.JLabel btn_simpan_keluhan;
     private javax.swing.JLabel btn_simpan_pasien;
     private javax.swing.JLabel btn_tambah_dokter;
     private javax.swing.JLabel btn_tambah_karyawan;
+    private javax.swing.JLabel btn_tambah_karyawan_edit;
+    private javax.swing.JLabel btn_tambah_karyawan_owner;
     private javax.swing.JLabel btn_update_dokter;
     private javax.swing.JLabel clicked_link_dashboard;
     private javax.swing.JLabel clicked_link_keluhan;
@@ -1931,6 +2295,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_agama;
     private javax.swing.JComboBox<String> cmb_dokter;
     private javax.swing.JComboBox<String> cmb_jenis_kelamin_karyawan;
+    private javax.swing.JComboBox<String> cmb_jenis_kelamin_karyawan_edit;
     private javax.swing.JComboBox<String> cmb_kelamin;
     private javax.swing.JComboBox<String> cmb_kelamin_dokter;
     private javax.swing.JComboBox<String> cmb_kelamin_edit;
@@ -1946,12 +2311,14 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private com.toedter.calendar.JDateChooser jd_tanggal_lahir;
     private com.toedter.calendar.JDateChooser jd_ttl_dokter;
     private com.toedter.calendar.JDateChooser jd_ttl_dokter_edit;
+    private javax.swing.JScrollPane jscroll_tabel_dokter;
+    private javax.swing.JScrollPane jscroll_tabel_karyawan;
     private javax.swing.JScrollPane jscroll_tabel_rekam_medis;
     private javax.swing.JScrollPane jscroll_tabel_rekam_medis1;
-    private javax.swing.JScrollPane jscroll_tabel_rekam_medis2;
     private javax.swing.JLabel lbl_jumlah_dokter;
     private javax.swing.JLabel lbl_jumlah_dokter_owner;
     private javax.swing.JLabel lbl_jumlah_pegawai_owner;
@@ -1979,20 +2346,26 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JPanel owner_rekammedis;
     private javax.swing.JPanel panel_content;
     private javax.swing.JPanel panel_edit_dokter;
+    private javax.swing.JPanel panel_edit_karyawan;
     private javax.swing.JPanel panel_sidebar;
     private javax.swing.JPanel panel_tambah_dokter;
+    private javax.swing.JPanel panel_tambah_karyawan;
     private javax.swing.JPanel sidebar_admin;
     private javax.swing.JPanel sidebar_owner;
     private javax.swing.JTextArea ta_alamat;
     private javax.swing.JTextArea ta_alamat_karyawan;
+    private javax.swing.JTextArea ta_alamat_karyawan_edit;
     private javax.swing.JTextArea ta_keluhan;
     private javax.swing.JTable tabel_dokter;
+    private javax.swing.JTable tabel_karyawan;
     private javax.swing.JTable tabel_rekam_medis;
     private javax.swing.JTable tabel_rekam_medis_karyawan;
     private com.toedter.calendar.JDateChooser tanggal_lahir;
+    private com.toedter.calendar.JDateChooser tanggal_lahir_edit;
     private javax.swing.JTextField tf_id_dokter;
     private javax.swing.JTextField tf_id_dokter_edit;
     private javax.swing.JTextField tf_id_karyawan;
+    private javax.swing.JTextField tf_id_karyawan_edit;
     private javax.swing.JTextField tf_id_keluhan;
     private javax.swing.JTextField tf_id_pasien;
     private javax.swing.JTextField tf_input_jadwal_dokter;
@@ -2001,19 +2374,24 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nama_dokter;
     private javax.swing.JTextField tf_nama_dokter_edit;
     private javax.swing.JTextField tf_nama_karyawan;
+    private javax.swing.JTextField tf_nama_karyawan_edit;
     private javax.swing.JTextField tf_nama_lengkap;
     private javax.swing.JTextField tf_nama_lengkap_keluhan;
     private javax.swing.JTextField tf_nik;
     private javax.swing.JTextField tf_nik_dokter;
     private javax.swing.JTextField tf_nik_dokter_edit;
     private javax.swing.JTextField tf_nik_karyawan;
+    private javax.swing.JTextField tf_nik_karyawan_edit;
     private javax.swing.JTextField tf_nik_keluhan;
     private javax.swing.JTextField tf_no_bpjs;
     private javax.swing.JTextField tf_no_dokter;
     private javax.swing.JTextField tf_no_dokter_edit;
     private javax.swing.JTextField tf_no_karyawan;
+    private javax.swing.JTextField tf_no_karyawan_edit;
     private javax.swing.JTextField tf_nomor_telepon;
     private javax.swing.JTextField tf_password_karyawan;
+    private javax.swing.JTextField tf_password_karyawan_edit;
     private javax.swing.JTextField tf_username_karyawan;
+    private javax.swing.JTextField tf_username_karyawan_edit;
     // End of variables declaration//GEN-END:variables
 }
