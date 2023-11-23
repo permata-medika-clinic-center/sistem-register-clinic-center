@@ -53,8 +53,12 @@ public class MainPage extends javax.swing.JFrame {
         
         panel_tambah_dokter.setVisible(false);
         panel_edit_dokter.setVisible(false);
+        detail_dokter.setVisible(false);
         panel_tambah_karyawan.setVisible(false);
         panel_edit_karyawan.setVisible(false);
+        detail_karyawan.setVisible(false);
+        detail_rekam_medis.setVisible(false);
+        detail_rekam_medis_owner.setVisible(false);
     }
 
     /**
@@ -93,31 +97,38 @@ public class MainPage extends javax.swing.JFrame {
         bg_sidebar_admin = new javax.swing.JLabel();
         panel_content = new javax.swing.JPanel();
         owner_rekammedis = new javax.swing.JPanel();
+        detail_rekam_medis_owner = new javax.swing.JPanel();
+        btn_tutup_detail1 = new javax.swing.JLabel();
+        detail_poli_tujuan_pasien1 = new javax.swing.JLabel();
+        detail_keluhan_pasien1 = new javax.swing.JLabel();
+        detail_nobpjs_pasien1 = new javax.swing.JLabel();
+        detail_alamat_pasien1 = new javax.swing.JLabel();
+        detail_no_telepon_pasien1 = new javax.swing.JLabel();
+        detail_pekerjaan_pasien1 = new javax.swing.JLabel();
+        detail_agama_pasien1 = new javax.swing.JLabel();
+        detail_status_pernikahan_pasien1 = new javax.swing.JLabel();
+        detail_jenis_kelamin_pasien1 = new javax.swing.JLabel();
+        detail_tanggal_pasien1 = new javax.swing.JLabel();
+        detail_nik_pasien1 = new javax.swing.JLabel();
+        detail_nama_pasien1 = new javax.swing.JLabel();
+        detail_id_rekammedis_pasien1 = new javax.swing.JLabel();
+        bg_detail_rekam_medis1 = new javax.swing.JLabel();
         jscroll_tabel_rekam_medis1 = new javax.swing.JScrollPane();
-        tabel_rekam_medis_karyawan = new javax.swing.JTable();
+        tabel_rekam_medis_owner = new javax.swing.JTable();
+        btn_detaill_rekam_medis_owner = new javax.swing.JLabel();
         bg_dashboard4 = new javax.swing.JLabel();
         owner_dokter = new javax.swing.JPanel();
         detail_dokter = new javax.swing.JPanel();
-        btn_tutup_detail = new javax.swing.JLabel();
-        detail_poli_tujuan = new javax.swing.JLabel();
-        detail_keluhan = new javax.swing.JLabel();
-        detail_nobpjs = new javax.swing.JLabel();
-        detail_alamat = new javax.swing.JLabel();
-        detail_no_telepon = new javax.swing.JLabel();
-        detail_pekerjaan = new javax.swing.JLabel();
-        detail_agama = new javax.swing.JLabel();
-        detail_status_pernikahan = new javax.swing.JLabel();
-        detail_jenis_kelamin = new javax.swing.JLabel();
-        detail_tanggal_dokter = new javax.swing.JLabel();
+        detail_poli_dokter = new javax.swing.JLabel();
+        detail_jadwal_dokter = new javax.swing.JLabel();
+        detail_alamat_dokter = new javax.swing.JLabel();
+        detail_kelamin_dokter = new javax.swing.JLabel();
+        detail_ttl_dokter = new javax.swing.JLabel();
         detail_nik_dokter = new javax.swing.JLabel();
         detail_nama_dokter = new javax.swing.JLabel();
         detail_id_dokter = new javax.swing.JLabel();
-        bg_detail_dokter = new javax.swing.JLabel();
-        btn_detail_dokter = new javax.swing.JLabel();
-        btn_hapus_dokter = new javax.swing.JLabel();
-        btn_tambah_dokter = new javax.swing.JLabel();
-        btn_edit_dokter = new javax.swing.JLabel();
-        bg_dashboard3 = new javax.swing.JLabel();
+        btn_tutup_detail_dokter = new javax.swing.JLabel();
+        bg_detail_dokterr = new javax.swing.JLabel();
         panel_edit_dokter = new javax.swing.JPanel();
         jd_ttl_dokter_edit = new com.toedter.calendar.JDateChooser();
         btn_update_dokter = new javax.swing.JLabel();
@@ -148,8 +159,25 @@ public class MainPage extends javax.swing.JFrame {
         bg_tambah_dokter = new javax.swing.JLabel();
         jscroll_tabel_dokter = new javax.swing.JScrollPane();
         tabel_dokter = new javax.swing.JTable();
+        btn_detail_dokter = new javax.swing.JLabel();
+        btn_hapus_dokter = new javax.swing.JLabel();
+        btn_tambah_dokter = new javax.swing.JLabel();
+        btn_edit_dokter = new javax.swing.JLabel();
+        bg_dashboard3 = new javax.swing.JLabel();
         owner_karyawan = new javax.swing.JPanel();
+        detail_karyawan = new javax.swing.JPanel();
+        detail_password_karyawan = new javax.swing.JLabel();
+        detail_username_karyawan = new javax.swing.JLabel();
+        detail_alamat_karyawan = new javax.swing.JLabel();
+        detail_kelamin_karyawan = new javax.swing.JLabel();
+        detail_ttl_karyawan = new javax.swing.JLabel();
+        detail_nik_karyawan = new javax.swing.JLabel();
+        detail_nama_karyawan = new javax.swing.JLabel();
+        detail_id_karyawan = new javax.swing.JLabel();
+        btn_tutup_detail_karyawan = new javax.swing.JLabel();
+        bg_detail_dokter = new javax.swing.JLabel();
         panel_edit_karyawan = new javax.swing.JPanel();
+        tanggal_lahir_edit = new com.toedter.calendar.JDateChooser();
         tf_password_karyawan_edit = new javax.swing.JTextField();
         tf_no_karyawan_edit = new javax.swing.JTextField();
         tf_username_karyawan_edit = new javax.swing.JTextField();
@@ -161,9 +189,9 @@ public class MainPage extends javax.swing.JFrame {
         btn_tambah_karyawan_edit = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         ta_alamat_karyawan_edit = new javax.swing.JTextArea();
-        tanggal_lahir_edit = new com.toedter.calendar.JDateChooser();
         bg_edit_karyawan = new javax.swing.JLabel();
         panel_tambah_karyawan = new javax.swing.JPanel();
+        tanggal_lahir = new com.toedter.calendar.JDateChooser();
         tf_password_karyawan = new javax.swing.JTextField();
         tf_no_karyawan = new javax.swing.JTextField();
         tf_username_karyawan = new javax.swing.JTextField();
@@ -175,10 +203,10 @@ public class MainPage extends javax.swing.JFrame {
         btn_tambah_karyawan = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ta_alamat_karyawan = new javax.swing.JTextArea();
-        tanggal_lahir = new com.toedter.calendar.JDateChooser();
         bg_dashboard2 = new javax.swing.JLabel();
         jscroll_tabel_karyawan = new javax.swing.JScrollPane();
         tabel_karyawan = new javax.swing.JTable();
+        btn_detail_karyawan = new javax.swing.JLabel();
         btn_hapus_karyawan = new javax.swing.JLabel();
         btn_tambah_karyawan_owner = new javax.swing.JLabel();
         btn_edit_karyawan = new javax.swing.JLabel();
@@ -195,11 +223,11 @@ public class MainPage extends javax.swing.JFrame {
         lbl_total_pasien = new javax.swing.JLabel();
         bg_dashboard = new javax.swing.JLabel();
         menu_pendaftaran = new javax.swing.JPanel();
+        jd_tanggal_lahir = new com.toedter.calendar.JDateChooser();
         tf_id_pasien = new javax.swing.JTextField();
         btn_simpan_pasien = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ta_alamat = new javax.swing.JTextArea();
-        jd_tanggal_lahir = new com.toedter.calendar.JDateChooser();
         tf_no_bpjs = new javax.swing.JTextField();
         tf_nomor_telepon = new javax.swing.JTextField();
         tf_nik = new javax.swing.JTextField();
@@ -223,8 +251,25 @@ public class MainPage extends javax.swing.JFrame {
         cmb_rekam_medis = new javax.swing.JComboBox<>();
         bg_keluhan = new javax.swing.JLabel();
         menu_rekammedis = new javax.swing.JPanel();
+        detail_rekam_medis = new javax.swing.JPanel();
+        btn_tutup_detail = new javax.swing.JLabel();
+        detail_poli_tujuan_pasien = new javax.swing.JLabel();
+        detail_keluhan_pasien = new javax.swing.JLabel();
+        detail_nobpjs_pasien = new javax.swing.JLabel();
+        detail_alamat_pasien = new javax.swing.JLabel();
+        detail_no_telepon_pasien = new javax.swing.JLabel();
+        detail_pekerjaan_pasien = new javax.swing.JLabel();
+        detail_agama_pasien = new javax.swing.JLabel();
+        detail_status_pernikahan_pasien = new javax.swing.JLabel();
+        detail_jenis_kelamin_pasien = new javax.swing.JLabel();
+        detail_tanggal_pasien = new javax.swing.JLabel();
+        detail_nik_pasien = new javax.swing.JLabel();
+        detail_nama_pasien = new javax.swing.JLabel();
+        detail_id_rekammedis_pasien = new javax.swing.JLabel();
+        bg_detail_rekam_medis = new javax.swing.JLabel();
         jscroll_tabel_rekam_medis = new javax.swing.JScrollPane();
         tabel_rekam_medis = new javax.swing.JTable();
+        detail_rekam_mediss = new javax.swing.JLabel();
         bg_rekammedis = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -233,6 +278,12 @@ public class MainPage extends javax.swing.JFrame {
         panel_sidebar.setLayout(null);
 
         sidebar_owner.setLayout(null);
+
+        link_owner_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                link_owner_logoutMouseClicked(evt);
+            }
+        });
         sidebar_owner.add(link_owner_logout);
         link_owner_logout.setBounds(10, 410, 220, 40);
 
@@ -400,8 +451,97 @@ public class MainPage extends javax.swing.JFrame {
         owner_rekammedis.setBackground(new java.awt.Color(102, 255, 0));
         owner_rekammedis.setLayout(null);
 
-        tabel_rekam_medis_karyawan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        tabel_rekam_medis_karyawan.setModel(new javax.swing.table.DefaultTableModel(
+        detail_rekam_medis_owner.setBackground(new Color(0,0,0,150));
+        detail_rekam_medis_owner.setForeground(new Color(0,0,0,0));
+        detail_rekam_medis_owner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                detail_rekam_medis_ownerMouseEntered(evt);
+            }
+        });
+        detail_rekam_medis_owner.setLayout(null);
+
+        btn_tutup_detail1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tutup_detail1MouseClicked(evt);
+            }
+        });
+        detail_rekam_medis_owner.add(btn_tutup_detail1);
+        btn_tutup_detail1.setBounds(530, 610, 220, 50);
+
+        detail_poli_tujuan_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_poli_tujuan_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_poli_tujuan_pasien1);
+        detail_poli_tujuan_pasien1.setBounds(850, 470, 120, 20);
+
+        detail_keluhan_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_keluhan_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_keluhan_pasien1);
+        detail_keluhan_pasien1.setBounds(850, 430, 120, 20);
+
+        detail_nobpjs_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nobpjs_pasien1.setText("-");
+        detail_rekam_medis_owner.add(detail_nobpjs_pasien1);
+        detail_nobpjs_pasien1.setBounds(850, 390, 120, 20);
+
+        detail_alamat_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_alamat_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_alamat_pasien1);
+        detail_alamat_pasien1.setBounds(850, 350, 270, 20);
+
+        detail_no_telepon_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_no_telepon_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_no_telepon_pasien1);
+        detail_no_telepon_pasien1.setBounds(850, 310, 120, 20);
+
+        detail_pekerjaan_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_pekerjaan_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_pekerjaan_pasien1);
+        detail_pekerjaan_pasien1.setBounds(850, 260, 120, 20);
+
+        detail_agama_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_agama_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_agama_pasien1);
+        detail_agama_pasien1.setBounds(410, 520, 120, 20);
+
+        detail_status_pernikahan_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_status_pernikahan_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_status_pernikahan_pasien1);
+        detail_status_pernikahan_pasien1.setBounds(410, 470, 120, 20);
+
+        detail_jenis_kelamin_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_jenis_kelamin_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_jenis_kelamin_pasien1);
+        detail_jenis_kelamin_pasien1.setBounds(410, 430, 120, 20);
+
+        detail_tanggal_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_tanggal_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_tanggal_pasien1);
+        detail_tanggal_pasien1.setBounds(410, 390, 120, 20);
+
+        detail_nik_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nik_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_nik_pasien1);
+        detail_nik_pasien1.setBounds(410, 350, 270, 20);
+
+        detail_nama_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nama_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_nama_pasien1);
+        detail_nama_pasien1.setBounds(410, 310, 120, 20);
+
+        detail_id_rekammedis_pasien1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_id_rekammedis_pasien1.setText("IDK001");
+        detail_rekam_medis_owner.add(detail_id_rekammedis_pasien1);
+        detail_id_rekammedis_pasien1.setBounds(410, 270, 120, 20);
+
+        bg_detail_rekam_medis1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Detai Rekam Medis.png"))); // NOI18N
+        detail_rekam_medis_owner.add(bg_detail_rekam_medis1);
+        bg_detail_rekam_medis1.setBounds(150, 130, 980, 580);
+
+        owner_rekammedis.add(detail_rekam_medis_owner);
+        detail_rekam_medis_owner.setBounds(0, 0, 1280, 860);
+
+        tabel_rekam_medis_owner.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tabel_rekam_medis_owner.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -412,13 +552,21 @@ public class MainPage extends javax.swing.JFrame {
                 "Nomor RM", "Nama", "Alamat", "Tanggal", "Layanan", "Aksi"
             }
         ));
-        tabel_rekam_medis_karyawan.setRowHeight(40);
-        jscroll_tabel_rekam_medis1.setViewportView(tabel_rekam_medis_karyawan);
+        tabel_rekam_medis_owner.setRowHeight(40);
+        jscroll_tabel_rekam_medis1.setViewportView(tabel_rekam_medis_owner);
 
         owner_rekammedis.add(jscroll_tabel_rekam_medis1);
         jscroll_tabel_rekam_medis1.setBounds(100, 310, 1080, 460);
 
-        bg_dashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Rekam Medis - Pemilik.png"))); // NOI18N
+        btn_detaill_rekam_medis_owner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_detaill_rekam_medis_ownerMouseClicked(evt);
+            }
+        });
+        owner_rekammedis.add(btn_detaill_rekam_medis_owner);
+        btn_detaill_rekam_medis_owner.setBounds(770, 180, 70, 60);
+
+        bg_dashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Rekam Medis - Pemilik.png"))); // NOI18N
         owner_rekammedis.add(bg_dashboard4);
         bg_dashboard4.setBounds(0, 0, 1276, 856);
 
@@ -430,123 +578,67 @@ public class MainPage extends javax.swing.JFrame {
 
         detail_dokter.setBackground(new Color(0,0,0,150));
         detail_dokter.setForeground(new Color(0,0,0,0));
-        detail_dokter.setLayout(null);
-
-        btn_tutup_detail.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_tutup_detailMouseClicked(evt);
+        detail_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                detail_dokterMouseEntered(evt);
             }
         });
-        detail_dokter.add(btn_tutup_detail);
-        btn_tutup_detail.setBounds(610, 650, 220, 50);
+        detail_dokter.setLayout(null);
 
-        detail_poli_tujuan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_poli_tujuan.setText("IDK001");
-        detail_dokter.add(detail_poli_tujuan);
-        detail_poli_tujuan.setBounds(930, 510, 120, 20);
+        detail_poli_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_poli_dokter.setText("IDK001");
+        detail_dokter.add(detail_poli_dokter);
+        detail_poli_dokter.setBounds(640, 540, 230, 20);
 
-        detail_keluhan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_keluhan.setText("IDK001");
-        detail_dokter.add(detail_keluhan);
-        detail_keluhan.setBounds(930, 474, 120, 20);
+        detail_jadwal_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_jadwal_dokter.setText("IDK001");
+        detail_dokter.add(detail_jadwal_dokter);
+        detail_jadwal_dokter.setBounds(640, 500, 230, 20);
 
-        detail_nobpjs.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_nobpjs.setText("IDK001");
-        detail_dokter.add(detail_nobpjs);
-        detail_nobpjs.setBounds(930, 430, 120, 20);
+        detail_alamat_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_alamat_dokter.setText("IDK001");
+        detail_dokter.add(detail_alamat_dokter);
+        detail_alamat_dokter.setBounds(640, 460, 230, 20);
 
-        detail_alamat.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_alamat.setText("IDK001");
-        detail_dokter.add(detail_alamat);
-        detail_alamat.setBounds(930, 390, 120, 20);
+        detail_kelamin_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_kelamin_dokter.setText("IDK001");
+        detail_dokter.add(detail_kelamin_dokter);
+        detail_kelamin_dokter.setBounds(640, 420, 220, 20);
 
-        detail_no_telepon.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_no_telepon.setText("IDK001");
-        detail_dokter.add(detail_no_telepon);
-        detail_no_telepon.setBounds(930, 350, 120, 20);
-
-        detail_pekerjaan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_pekerjaan.setText("IDK001");
-        detail_dokter.add(detail_pekerjaan);
-        detail_pekerjaan.setBounds(930, 304, 120, 20);
-
-        detail_agama.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_agama.setText("IDK001");
-        detail_dokter.add(detail_agama);
-        detail_agama.setBounds(490, 560, 120, 20);
-
-        detail_status_pernikahan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_status_pernikahan.setText("IDK001");
-        detail_dokter.add(detail_status_pernikahan);
-        detail_status_pernikahan.setBounds(490, 516, 120, 20);
-
-        detail_jenis_kelamin.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_jenis_kelamin.setText("IDK001");
-        detail_dokter.add(detail_jenis_kelamin);
-        detail_jenis_kelamin.setBounds(490, 474, 120, 20);
-
-        detail_tanggal_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_tanggal_dokter.setText("IDK001");
-        detail_dokter.add(detail_tanggal_dokter);
-        detail_tanggal_dokter.setBounds(490, 430, 120, 20);
+        detail_ttl_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_ttl_dokter.setText("IDK001");
+        detail_dokter.add(detail_ttl_dokter);
+        detail_ttl_dokter.setBounds(640, 380, 220, 20);
 
         detail_nik_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_nik_dokter.setText("IDK001");
         detail_dokter.add(detail_nik_dokter);
-        detail_nik_dokter.setBounds(490, 390, 120, 20);
+        detail_nik_dokter.setBounds(640, 330, 210, 20);
 
         detail_nama_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_nama_dokter.setText("IDK001");
         detail_dokter.add(detail_nama_dokter);
-        detail_nama_dokter.setBounds(490, 350, 120, 20);
+        detail_nama_dokter.setBounds(640, 296, 210, 20);
 
         detail_id_dokter.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_id_dokter.setText("IDK001");
         detail_dokter.add(detail_id_dokter);
-        detail_id_dokter.setBounds(490, 310, 120, 20);
+        detail_id_dokter.setBounds(640, 254, 220, 20);
 
-        bg_detail_dokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Detai Rekam Medis.png"))); // NOI18N
-        detail_dokter.add(bg_detail_dokter);
-        bg_detail_dokter.setBounds(230, 170, 980, 580);
+        btn_tutup_detail_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tutup_detail_dokterMouseClicked(evt);
+            }
+        });
+        detail_dokter.add(btn_tutup_detail_dokter);
+        btn_tutup_detail_dokter.setBounds(530, 640, 220, 60);
+
+        bg_detail_dokterr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Detail Dokter - Pemilik.png"))); // NOI18N
+        detail_dokter.add(bg_detail_dokterr);
+        bg_detail_dokterr.setBounds(380, 120, 520, 620);
 
         owner_dokter.add(detail_dokter);
         detail_dokter.setBounds(0, 0, 1280, 860);
-
-        btn_detail_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_detail_dokterMouseClicked(evt);
-            }
-        });
-        owner_dokter.add(btn_detail_dokter);
-        btn_detail_dokter.setBounds(780, 180, 60, 60);
-
-        btn_hapus_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_hapus_dokterMouseClicked(evt);
-            }
-        });
-        owner_dokter.add(btn_hapus_dokter);
-        btn_hapus_dokter.setBounds(690, 180, 60, 60);
-
-        btn_tambah_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_tambah_dokterMouseClicked(evt);
-            }
-        });
-        owner_dokter.add(btn_tambah_dokter);
-        btn_tambah_dokter.setBounds(510, 180, 70, 60);
-
-        btn_edit_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_edit_dokterMouseClicked(evt);
-            }
-        });
-        owner_dokter.add(btn_edit_dokter);
-        btn_edit_dokter.setBounds(600, 180, 60, 60);
-
-        bg_dashboard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Dokter - Pemilik.png"))); // NOI18N
-        owner_dokter.add(bg_dashboard3);
-        bg_dashboard3.setBounds(0, 0, 1276, 856);
 
         panel_edit_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -555,7 +647,7 @@ public class MainPage extends javax.swing.JFrame {
         });
         panel_edit_dokter.setLayout(null);
         panel_edit_dokter.add(jd_ttl_dokter_edit);
-        jd_ttl_dokter_edit.setBounds(660, 260, 360, 50);
+        jd_ttl_dokter_edit.setBounds(660, 260, 370, 50);
 
         btn_update_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -659,7 +751,7 @@ public class MainPage extends javax.swing.JFrame {
         });
         panel_tambah_dokter.setLayout(null);
         panel_tambah_dokter.add(jd_ttl_dokter);
-        jd_ttl_dokter.setBounds(660, 260, 360, 50);
+        jd_ttl_dokter.setBounds(660, 260, 370, 50);
 
         btn_input_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -774,11 +866,114 @@ public class MainPage extends javax.swing.JFrame {
         owner_dokter.add(jscroll_tabel_dokter);
         jscroll_tabel_dokter.setBounds(100, 310, 1080, 460);
 
+        btn_detail_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_detail_dokterMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_detail_dokterMouseEntered(evt);
+            }
+        });
+        owner_dokter.add(btn_detail_dokter);
+        btn_detail_dokter.setBounds(780, 180, 60, 60);
+
+        btn_hapus_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_hapus_dokterMouseClicked(evt);
+            }
+        });
+        owner_dokter.add(btn_hapus_dokter);
+        btn_hapus_dokter.setBounds(690, 180, 60, 60);
+
+        btn_tambah_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tambah_dokterMouseClicked(evt);
+            }
+        });
+        owner_dokter.add(btn_tambah_dokter);
+        btn_tambah_dokter.setBounds(510, 180, 70, 60);
+
+        btn_edit_dokter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_edit_dokterMouseClicked(evt);
+            }
+        });
+        owner_dokter.add(btn_edit_dokter);
+        btn_edit_dokter.setBounds(600, 180, 60, 60);
+
+        bg_dashboard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Dokter - Pemilik.png"))); // NOI18N
+        owner_dokter.add(bg_dashboard3);
+        bg_dashboard3.setBounds(0, 0, 1276, 856);
+
         panel_content.add(owner_dokter);
         owner_dokter.setBounds(0, 0, 1276, 856);
 
         owner_karyawan.setBackground(new java.awt.Color(102, 255, 0));
         owner_karyawan.setLayout(null);
+
+        detail_karyawan.setBackground(new Color(0,0,0,150));
+        detail_karyawan.setForeground(new Color(0,0,0,0));
+        detail_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                detail_karyawanMouseEntered(evt);
+            }
+        });
+        detail_karyawan.setLayout(null);
+
+        detail_password_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_password_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_password_karyawan);
+        detail_password_karyawan.setBounds(630, 550, 230, 20);
+
+        detail_username_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_username_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_username_karyawan);
+        detail_username_karyawan.setBounds(630, 510, 230, 20);
+
+        detail_alamat_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_alamat_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_alamat_karyawan);
+        detail_alamat_karyawan.setBounds(630, 470, 230, 20);
+
+        detail_kelamin_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_kelamin_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_kelamin_karyawan);
+        detail_kelamin_karyawan.setBounds(630, 430, 220, 20);
+
+        detail_ttl_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_ttl_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_ttl_karyawan);
+        detail_ttl_karyawan.setBounds(630, 380, 220, 20);
+
+        detail_nik_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nik_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_nik_karyawan);
+        detail_nik_karyawan.setBounds(630, 340, 210, 20);
+
+        detail_nama_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nama_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_nama_karyawan);
+        detail_nama_karyawan.setBounds(630, 300, 210, 20);
+
+        detail_id_karyawan.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_id_karyawan.setText("IDK001");
+        detail_karyawan.add(detail_id_karyawan);
+        detail_id_karyawan.setBounds(630, 260, 220, 20);
+
+        btn_tutup_detail_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tutup_detail_karyawanMouseClicked(evt);
+            }
+        });
+        detail_karyawan.add(btn_tutup_detail_karyawan);
+        btn_tutup_detail_karyawan.setBounds(540, 630, 220, 60);
+
+        bg_detail_dokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Detail Karyawan - Pemilik.png"))); // NOI18N
+        detail_karyawan.add(bg_detail_dokter);
+        bg_detail_dokter.setBounds(370, 120, 550, 620);
+
+        owner_karyawan.add(detail_karyawan);
+        detail_karyawan.setBounds(0, 0, 1280, 860);
 
         panel_edit_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -786,6 +981,8 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         panel_edit_karyawan.setLayout(null);
+        panel_edit_karyawan.add(tanggal_lahir_edit);
+        tanggal_lahir_edit.setBounds(680, 350, 350, 50);
 
         tf_password_karyawan_edit.setBackground(new Color(0,0,0,0));
         tf_password_karyawan_edit.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -883,8 +1080,6 @@ public class MainPage extends javax.swing.JFrame {
 
         panel_edit_karyawan.add(jScrollPane6);
         jScrollPane6.setBounds(680, 520, 340, 100);
-        panel_edit_karyawan.add(tanggal_lahir_edit);
-        tanggal_lahir_edit.setBounds(660, 350, 380, 50);
 
         bg_edit_karyawan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Edit Karyawan - Pemilik.png"))); // NOI18N
         panel_edit_karyawan.add(bg_edit_karyawan);
@@ -899,6 +1094,8 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         panel_tambah_karyawan.setLayout(null);
+        panel_tambah_karyawan.add(tanggal_lahir);
+        tanggal_lahir.setBounds(680, 350, 350, 50);
 
         tf_password_karyawan.setBackground(new Color(0,0,0,0));
         tf_password_karyawan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -996,8 +1193,6 @@ public class MainPage extends javax.swing.JFrame {
 
         panel_tambah_karyawan.add(jScrollPane3);
         jScrollPane3.setBounds(680, 520, 340, 100);
-        panel_tambah_karyawan.add(tanggal_lahir);
-        tanggal_lahir.setBounds(660, 350, 380, 50);
 
         bg_dashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Karyawan -  Pemilik.png"))); // NOI18N
         panel_tambah_karyawan.add(bg_dashboard2);
@@ -1024,13 +1219,21 @@ public class MainPage extends javax.swing.JFrame {
         owner_karyawan.add(jscroll_tabel_karyawan);
         jscroll_tabel_karyawan.setBounds(100, 310, 1080, 460);
 
+        btn_detail_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_detail_karyawanMouseClicked(evt);
+            }
+        });
+        owner_karyawan.add(btn_detail_karyawan);
+        btn_detail_karyawan.setBounds(770, 180, 70, 60);
+
         btn_hapus_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_hapus_karyawanMouseClicked(evt);
             }
         });
         owner_karyawan.add(btn_hapus_karyawan);
-        btn_hapus_karyawan.setBounds(700, 180, 140, 60);
+        btn_hapus_karyawan.setBounds(680, 180, 70, 60);
 
         btn_tambah_karyawan_owner.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1038,7 +1241,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         owner_karyawan.add(btn_tambah_karyawan_owner);
-        btn_tambah_karyawan_owner.setBounds(330, 180, 180, 60);
+        btn_tambah_karyawan_owner.setBounds(510, 180, 70, 60);
 
         btn_edit_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1046,7 +1249,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         owner_karyawan.add(btn_edit_karyawan);
-        btn_edit_karyawan.setBounds(530, 180, 140, 60);
+        btn_edit_karyawan.setBounds(600, 180, 70, 60);
 
         bg_karyawan_owner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Pegawai - Pemilik.png"))); // NOI18N
         owner_karyawan.add(bg_karyawan_owner);
@@ -1126,6 +1329,8 @@ public class MainPage extends javax.swing.JFrame {
 
         menu_pendaftaran.setBackground(new java.awt.Color(102, 255, 0));
         menu_pendaftaran.setLayout(null);
+        menu_pendaftaran.add(jd_tanggal_lahir);
+        jd_tanggal_lahir.setBounds(870, 190, 370, 50);
 
         tf_id_pasien.setBackground(new Color(0,0,0,0));
         tf_id_pasien.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -1151,8 +1356,6 @@ public class MainPage extends javax.swing.JFrame {
 
         menu_pendaftaran.add(jScrollPane1);
         jScrollPane1.setBounds(470, 470, 350, 100);
-        menu_pendaftaran.add(jd_tanggal_lahir);
-        jd_tanggal_lahir.setBounds(870, 190, 380, 50);
 
         tf_no_bpjs.setBackground(new Color(0,0,0,0));
         tf_no_bpjs.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -1306,6 +1509,95 @@ public class MainPage extends javax.swing.JFrame {
         menu_rekammedis.setBackground(new java.awt.Color(102, 255, 0));
         menu_rekammedis.setLayout(null);
 
+        detail_rekam_medis.setBackground(new Color(0,0,0,150));
+        detail_rekam_medis.setForeground(new Color(0,0,0,0));
+        detail_rekam_medis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                detail_rekam_medisMouseEntered(evt);
+            }
+        });
+        detail_rekam_medis.setLayout(null);
+
+        btn_tutup_detail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tutup_detailMouseClicked(evt);
+            }
+        });
+        detail_rekam_medis.add(btn_tutup_detail);
+        btn_tutup_detail.setBounds(530, 610, 220, 50);
+
+        detail_poli_tujuan_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_poli_tujuan_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_poli_tujuan_pasien);
+        detail_poli_tujuan_pasien.setBounds(850, 470, 120, 20);
+
+        detail_keluhan_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_keluhan_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_keluhan_pasien);
+        detail_keluhan_pasien.setBounds(850, 430, 120, 20);
+
+        detail_nobpjs_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nobpjs_pasien.setText("-");
+        detail_rekam_medis.add(detail_nobpjs_pasien);
+        detail_nobpjs_pasien.setBounds(850, 390, 120, 20);
+
+        detail_alamat_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_alamat_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_alamat_pasien);
+        detail_alamat_pasien.setBounds(850, 350, 270, 20);
+
+        detail_no_telepon_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_no_telepon_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_no_telepon_pasien);
+        detail_no_telepon_pasien.setBounds(850, 310, 120, 20);
+
+        detail_pekerjaan_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_pekerjaan_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_pekerjaan_pasien);
+        detail_pekerjaan_pasien.setBounds(850, 260, 120, 20);
+
+        detail_agama_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_agama_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_agama_pasien);
+        detail_agama_pasien.setBounds(410, 520, 120, 20);
+
+        detail_status_pernikahan_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_status_pernikahan_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_status_pernikahan_pasien);
+        detail_status_pernikahan_pasien.setBounds(410, 470, 120, 20);
+
+        detail_jenis_kelamin_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_jenis_kelamin_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_jenis_kelamin_pasien);
+        detail_jenis_kelamin_pasien.setBounds(410, 430, 120, 20);
+
+        detail_tanggal_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_tanggal_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_tanggal_pasien);
+        detail_tanggal_pasien.setBounds(410, 390, 120, 20);
+
+        detail_nik_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nik_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_nik_pasien);
+        detail_nik_pasien.setBounds(410, 350, 270, 20);
+
+        detail_nama_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_nama_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_nama_pasien);
+        detail_nama_pasien.setBounds(410, 310, 120, 20);
+
+        detail_id_rekammedis_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        detail_id_rekammedis_pasien.setText("IDK001");
+        detail_rekam_medis.add(detail_id_rekammedis_pasien);
+        detail_id_rekammedis_pasien.setBounds(410, 270, 120, 20);
+
+        bg_detail_rekam_medis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Detai Rekam Medis.png"))); // NOI18N
+        detail_rekam_medis.add(bg_detail_rekam_medis);
+        bg_detail_rekam_medis.setBounds(150, 130, 980, 580);
+
+        menu_rekammedis.add(detail_rekam_medis);
+        detail_rekam_medis.setBounds(0, 0, 1280, 860);
+
         tabel_rekam_medis.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tabel_rekam_medis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1324,7 +1616,15 @@ public class MainPage extends javax.swing.JFrame {
         menu_rekammedis.add(jscroll_tabel_rekam_medis);
         jscroll_tabel_rekam_medis.setBounds(100, 310, 1080, 460);
 
-        bg_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Panel - Rekam Medis - Admin.png"))); // NOI18N
+        detail_rekam_mediss.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                detail_rekam_medissMouseClicked(evt);
+            }
+        });
+        menu_rekammedis.add(detail_rekam_mediss);
+        detail_rekam_mediss.setBounds(770, 180, 70, 70);
+
+        bg_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Rekam Medis - Pemilik.png"))); // NOI18N
         menu_rekammedis.add(bg_rekammedis);
         bg_rekammedis.setBounds(0, 0, 1276, 856);
 
@@ -1470,7 +1770,7 @@ public class MainPage extends javax.swing.JFrame {
             tbl.addColumn("Tanggal Kontrol");
             tbl.addColumn("Layanan");
             tabel_rekam_medis.setModel(tbl);
-            tabel_rekam_medis_karyawan.setModel(tbl);
+            tabel_rekam_medis_owner.setModel(tbl);
             
             while (res.next()) {
                 tbl.addRow(new Object[]{
@@ -1481,7 +1781,7 @@ public class MainPage extends javax.swing.JFrame {
                     res.getString(5)
                 });
                 tabel_rekam_medis.setModel(tbl);
-                tabel_rekam_medis_karyawan.setModel(tbl);
+                tabel_rekam_medis_owner.setModel(tbl);
             };
             
         } catch (Exception e) {
@@ -1820,7 +2120,9 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_link_rekam_medisMouseClicked
 
     private void link_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_logoutMouseClicked
-        // TODO add your handling code here:
+       this.dispose();
+       LoginForm login = new LoginForm();
+       login.setVisible(true);
     }//GEN-LAST:event_link_logoutMouseClicked
 
     private void clicked_link_dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicked_link_dashboardMouseClicked
@@ -2324,28 +2626,25 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_batal_karyawanMouseClicked
 
     private void btn_detail_dokterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_detail_dokterMouseClicked
-        int row =tabel_dokter.getSelectedRow();
+        int row = tabel_dokter.getSelectedRow();
         String id_dokter =(tabel_dokter.getModel().getValueAt(row, 0).toString());
         try {
-            String sql = "SELECT * FROM `tb_dokter` where id_dokter = '"+id_dokter+"'";
+            String sql = "SELECT * FROM tb_dokter where id_dokter ='"+id_dokter+"'";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             if(res.next()){
-//               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//                Date date = sdf.format(res.getString(3));
-                String date = res.getString(3);  
-                Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);  
+                detail_id_dokter.setText(res.getString(1));
+                detail_nama_dokter.setText(res.getString(2));
+                detail_ttl_dokter.setText(res.getString(3));
+                detail_alamat_dokter.setText(res.getString(4));
+                detail_nik_dokter.setText(res.getString(5));
+                detail_kelamin_dokter.setText(res.getString(6));
+                detail_jadwal_dokter.setText(res.getString(7));
+                detail_poli_dokter.setText(res.getString(8));
                 
-                tf_id_karyawan_edit.setText(res.getString(1));
-                tf_nama_karyawan_edit.setText(res.getString(2));
-                tanggal_lahir_edit.setDate(date1);
-                tf_nik_karyawan_edit.setText(res.getString(4));
-                cmb_jenis_kelamin_karyawan_edit.setSelectedItem(res.getString(5));
-                ta_alamat_karyawan_edit.setText(res.getString(6));
-                tf_password_karyawan_edit.setText(res.getString(7));
-                panel_edit_karyawan.setVisible(true);
+                detail_dokter.setVisible(true);
             }else{
                 System.out.println("tidak ada data");
             }
@@ -2355,8 +2654,141 @@ public class MainPage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_detail_dokterMouseClicked
 
     private void btn_tutup_detailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tutup_detailMouseClicked
-        detail_dokter.setVisible(false);
+        detail_rekam_medis.setVisible(false);
     }//GEN-LAST:event_btn_tutup_detailMouseClicked
+
+    private void btn_tutup_detail_karyawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tutup_detail_karyawanMouseClicked
+        detail_karyawan.setVisible(false);
+    }//GEN-LAST:event_btn_tutup_detail_karyawanMouseClicked
+
+    private void btn_detail_dokterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_detail_dokterMouseEntered
+       
+    }//GEN-LAST:event_btn_detail_dokterMouseEntered
+
+    private void detail_karyawanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detail_karyawanMouseEntered
+         detail_karyawan.setVisible(true);
+    }//GEN-LAST:event_detail_karyawanMouseEntered
+
+    private void btn_tutup_detail_dokterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tutup_detail_dokterMouseClicked
+        detail_dokter.setVisible(false);
+    }//GEN-LAST:event_btn_tutup_detail_dokterMouseClicked
+
+    private void detail_dokterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detail_dokterMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detail_dokterMouseEntered
+
+    private void btn_detail_karyawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_detail_karyawanMouseClicked
+        int row =tabel_karyawan.getSelectedRow();
+        String id_karyawan =(tabel_karyawan.getModel().getValueAt(row, 0).toString());
+        try {
+            String sql = "SELECT * FROM `tb_karyawan` where id_karyawan = '"+id_karyawan+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if(res.next()){
+                detail_id_karyawan.setText(res.getString(1));
+                detail_nama_karyawan.setText(res.getString(2));
+                detail_ttl_karyawan.setText(res.getString(3));
+                detail_alamat_karyawan.setText(res.getString(4));
+                detail_nik_karyawan.setText(res.getString(5));
+                detail_kelamin_karyawan.setText(res.getString(6));
+                detail_username_karyawan.setText(res.getString(7));
+                detail_password_karyawan.setText(res.getString(8));
+                
+                detail_karyawan.setVisible(true);
+            }else{
+                System.out.println("tidak ada data");
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_btn_detail_karyawanMouseClicked
+
+    private void detail_rekam_medissMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detail_rekam_medissMouseClicked
+        int row =tabel_rekam_medis.getSelectedRow();
+        String id_rekam_medis =(tabel_rekam_medis.getModel().getValueAt(row, 0).toString());
+        try {
+            String sql = "SELECT * FROM tb_pasien JOIN tb_keluhan ON tb_pasien.id_rekam_medis = tb_keluhan.id_rekam_medis where tb_pasien.id_rekam_medis ='"+id_rekam_medis+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if(res.next()){
+                String date = res.getString(3);  
+                Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);  
+                
+                detail_id_rekammedis_pasien.setText(res.getString(1));
+                detail_nama_pasien.setText(res.getString(2));
+                detail_tanggal_pasien.setText(res.getString(3));
+                detail_nik_pasien.setText(res.getString(4));
+                detail_jenis_kelamin_pasien.setText(res.getString(5));
+                detail_status_pernikahan_pasien.setText(res.getString(6));
+                detail_agama_pasien.setText(res.getString(7));
+                detail_no_telepon_pasien.setText(res.getString(8));
+                detail_alamat_pasien.setText(res.getString(9));
+                detail_nobpjs_pasien.setText(res.getString(10));
+                
+                detail_poli_tujuan_pasien.setText(res.getString(13));
+                detail_keluhan_pasien.setText(res.getString(15));
+                detail_rekam_medis.setVisible(true);
+            }else{
+                System.out.println("tidak ada data");
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_detail_rekam_medissMouseClicked
+
+    private void link_owner_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_link_owner_logoutMouseClicked
+       this.dispose();
+       LoginForm login = new LoginForm();
+       login.setVisible(true);
+    }//GEN-LAST:event_link_owner_logoutMouseClicked
+
+    private void detail_rekam_medisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detail_rekam_medisMouseEntered
+        detail_rekam_medis.setVisible(true);
+    }//GEN-LAST:event_detail_rekam_medisMouseEntered
+
+    private void btn_tutup_detail1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tutup_detail1MouseClicked
+        detail_rekam_medis_owner.setVisible(false);
+    }//GEN-LAST:event_btn_tutup_detail1MouseClicked
+
+    private void detail_rekam_medis_ownerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detail_rekam_medis_ownerMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detail_rekam_medis_ownerMouseEntered
+
+    private void btn_detaill_rekam_medis_ownerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_detaill_rekam_medis_ownerMouseClicked
+        int row =tabel_rekam_medis_owner.getSelectedRow();
+        String id_rekam_medis =(tabel_rekam_medis_owner.getModel().getValueAt(row, 0).toString());
+        try {
+            String sql = "SELECT * FROM tb_pasien JOIN tb_keluhan ON tb_pasien.id_rekam_medis = tb_keluhan.id_rekam_medis where tb_pasien.id_rekam_medis ='"+id_rekam_medis+"'";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            if(res.next()){
+                detail_id_rekammedis_pasien1.setText(res.getString(1));
+                detail_nama_pasien1.setText(res.getString(2));
+                detail_tanggal_pasien1.setText(res.getString(3));
+                detail_nik_pasien1.setText(res.getString(4));
+                detail_jenis_kelamin_pasien1.setText(res.getString(5));
+                detail_status_pernikahan_pasien1.setText(res.getString(6));
+                detail_agama_pasien1.setText(res.getString(7));
+                detail_no_telepon_pasien1.setText(res.getString(8));
+                detail_alamat_pasien1.setText(res.getString(9));
+                detail_nobpjs_pasien1.setText(res.getString(10));
+                
+                detail_poli_tujuan_pasien1.setText(res.getString(13));
+                detail_keluhan_pasien1.setText(res.getString(15));
+                detail_rekam_medis_owner.setVisible(true);
+            }else{
+                System.out.println("tidak ada data");
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_btn_detaill_rekam_medis_ownerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2402,6 +2834,9 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel bg_dashboard3;
     private javax.swing.JLabel bg_dashboard4;
     private javax.swing.JLabel bg_detail_dokter;
+    private javax.swing.JLabel bg_detail_dokterr;
+    private javax.swing.JLabel bg_detail_rekam_medis;
+    private javax.swing.JLabel bg_detail_rekam_medis1;
     private javax.swing.JLabel bg_edit_karyawan;
     private javax.swing.JLabel bg_karyawan_owner;
     private javax.swing.JLabel bg_keluhan;
@@ -2416,6 +2851,8 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel btn_batal_tambah_dokter;
     private javax.swing.JLabel btn_batal_tambah_dokter1;
     private javax.swing.JLabel btn_detail_dokter;
+    private javax.swing.JLabel btn_detail_karyawan;
+    private javax.swing.JLabel btn_detaill_rekam_medis_owner;
     private javax.swing.JLabel btn_edit_dokter;
     private javax.swing.JLabel btn_edit_karyawan;
     private javax.swing.JLabel btn_hapus_dokter;
@@ -2428,6 +2865,9 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel btn_tambah_karyawan_edit;
     private javax.swing.JLabel btn_tambah_karyawan_owner;
     private javax.swing.JLabel btn_tutup_detail;
+    private javax.swing.JLabel btn_tutup_detail1;
+    private javax.swing.JLabel btn_tutup_detail_dokter;
+    private javax.swing.JLabel btn_tutup_detail_karyawan;
     private javax.swing.JLabel btn_update_dokter;
     private javax.swing.JLabel clicked_link_dashboard;
     private javax.swing.JLabel clicked_link_keluhan;
@@ -2453,20 +2893,53 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_poli_tujuan_dokter;
     private javax.swing.JComboBox<String> cmb_rekam_medis;
     private javax.swing.JComboBox<String> cmb_status_pernikahan;
-    private javax.swing.JLabel detail_agama;
-    private javax.swing.JLabel detail_alamat;
+    private javax.swing.JLabel detail_agama_pasien;
+    private javax.swing.JLabel detail_agama_pasien1;
+    private javax.swing.JLabel detail_alamat_dokter;
+    private javax.swing.JLabel detail_alamat_karyawan;
+    private javax.swing.JLabel detail_alamat_pasien;
+    private javax.swing.JLabel detail_alamat_pasien1;
     private javax.swing.JPanel detail_dokter;
     private javax.swing.JLabel detail_id_dokter;
-    private javax.swing.JLabel detail_jenis_kelamin;
-    private javax.swing.JLabel detail_keluhan;
+    private javax.swing.JLabel detail_id_karyawan;
+    private javax.swing.JLabel detail_id_rekammedis_pasien;
+    private javax.swing.JLabel detail_id_rekammedis_pasien1;
+    private javax.swing.JLabel detail_jadwal_dokter;
+    private javax.swing.JLabel detail_jenis_kelamin_pasien;
+    private javax.swing.JLabel detail_jenis_kelamin_pasien1;
+    private javax.swing.JPanel detail_karyawan;
+    private javax.swing.JLabel detail_kelamin_dokter;
+    private javax.swing.JLabel detail_kelamin_karyawan;
+    private javax.swing.JLabel detail_keluhan_pasien;
+    private javax.swing.JLabel detail_keluhan_pasien1;
     private javax.swing.JLabel detail_nama_dokter;
+    private javax.swing.JLabel detail_nama_karyawan;
+    private javax.swing.JLabel detail_nama_pasien;
+    private javax.swing.JLabel detail_nama_pasien1;
     private javax.swing.JLabel detail_nik_dokter;
-    private javax.swing.JLabel detail_no_telepon;
-    private javax.swing.JLabel detail_nobpjs;
-    private javax.swing.JLabel detail_pekerjaan;
-    private javax.swing.JLabel detail_poli_tujuan;
-    private javax.swing.JLabel detail_status_pernikahan;
-    private javax.swing.JLabel detail_tanggal_dokter;
+    private javax.swing.JLabel detail_nik_karyawan;
+    private javax.swing.JLabel detail_nik_pasien;
+    private javax.swing.JLabel detail_nik_pasien1;
+    private javax.swing.JLabel detail_no_telepon_pasien;
+    private javax.swing.JLabel detail_no_telepon_pasien1;
+    private javax.swing.JLabel detail_nobpjs_pasien;
+    private javax.swing.JLabel detail_nobpjs_pasien1;
+    private javax.swing.JLabel detail_password_karyawan;
+    private javax.swing.JLabel detail_pekerjaan_pasien;
+    private javax.swing.JLabel detail_pekerjaan_pasien1;
+    private javax.swing.JLabel detail_poli_dokter;
+    private javax.swing.JLabel detail_poli_tujuan_pasien;
+    private javax.swing.JLabel detail_poli_tujuan_pasien1;
+    private javax.swing.JPanel detail_rekam_medis;
+    private javax.swing.JPanel detail_rekam_medis_owner;
+    private javax.swing.JLabel detail_rekam_mediss;
+    private javax.swing.JLabel detail_status_pernikahan_pasien;
+    private javax.swing.JLabel detail_status_pernikahan_pasien1;
+    private javax.swing.JLabel detail_tanggal_pasien;
+    private javax.swing.JLabel detail_tanggal_pasien1;
+    private javax.swing.JLabel detail_ttl_dokter;
+    private javax.swing.JLabel detail_ttl_karyawan;
+    private javax.swing.JLabel detail_username_karyawan;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2520,7 +2993,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JTable tabel_dokter;
     private javax.swing.JTable tabel_karyawan;
     private javax.swing.JTable tabel_rekam_medis;
-    private javax.swing.JTable tabel_rekam_medis_karyawan;
+    private javax.swing.JTable tabel_rekam_medis_owner;
     private com.toedter.calendar.JDateChooser tanggal_lahir;
     private com.toedter.calendar.JDateChooser tanggal_lahir_edit;
     private javax.swing.JTextField tf_id_dokter;
