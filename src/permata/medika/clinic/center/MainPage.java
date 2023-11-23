@@ -1401,7 +1401,7 @@ public class MainPage extends javax.swing.JFrame {
         menu_pendaftaran.add(cmb_status_pernikahan);
         cmb_status_pernikahan.setBounds(450, 390, 380, 50);
 
-        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---", "Belum Nikah", "Sudah Nikah" }));
+        cmb_poli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---" }));
         cmb_poli.setBorder(null);
         menu_pendaftaran.add(cmb_poli);
         cmb_poli.setBounds(30, 480, 380, 50);
@@ -1681,6 +1681,18 @@ public class MainPage extends javax.swing.JFrame {
         panel_content.revalidate();
     }
     
+    public void resetInputPasien(){
+            jd_tanggal_lahir.setDate(null);
+            tf_nama_lengkap.setText("");
+            tf_nik.setText("");
+            cmb_kelamin.setSelectedItem("");
+            cmb_status_pernikahan.setSelectedItem("");
+            cmb_agama.setSelectedItem("");
+            tf_nomor_telepon.setText("");
+            ta_alamat.setText("");
+            tf_no_bpjs.setText("");
+    }
+    
     public void getIDKaryawan(){
         try {
             String sql = "select id_karyawan from `tb_karyawan`";
@@ -1935,6 +1947,7 @@ public class MainPage extends javax.swing.JFrame {
             while (res.next()) {
                 cmb_poli_tujuan.addItem(res.getString(1));
                 cmb_poli_dokter_edit.addItem(res.getString(1));
+                cmb_poli.addItem(res.getString(1));
             };
             
         } catch (Exception e) {
@@ -2183,6 +2196,8 @@ public class MainPage extends javax.swing.JFrame {
             );
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
+            getIDRekamMedis();
+            resetInputPasien();
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
