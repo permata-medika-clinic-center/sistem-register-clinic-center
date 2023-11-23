@@ -123,7 +123,7 @@ public class LoginForm extends javax.swing.JFrame {
             String username = tf_username.getText();
             String password = tf_password.getText();
             
-            String sql = "select * from `tb_karyawan` where id_karyawan='"+username+"' AND password='"+password+"'";
+            String sql = "select * from `tb_karyawan` where username='"+username+"' AND password='"+password+"'";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -147,7 +147,7 @@ public class LoginForm extends javax.swing.JFrame {
                 }
                 
             }else{
-                JOptionPane.showMessageDialog(this, "gagal");
+                JOptionPane.showMessageDialog(this, "Password atau username salah");
             }
             
         } catch (Exception e) {

@@ -1840,7 +1840,8 @@ public class MainPage extends javax.swing.JFrame {
                     res.getString(2),
                     res.getString(3),
                     res.getString(4),
-                    res.getString(5)
+                    res.getString(5),
+                    res.getString(6)
                 });
                 tabel_karyawan.setModel(tbl);
             };
