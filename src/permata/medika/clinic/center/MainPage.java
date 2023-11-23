@@ -2327,7 +2327,7 @@ public class MainPage extends javax.swing.JFrame {
 
     private void btn_tambah_karyawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tambah_karyawanMouseClicked
         try {
-            String sql = "INSERT INTO `tb_karyawan` VALUES ('%s','%s','%s','%s','%s','%s','%s', 'admin')";
+            String sql = "INSERT INTO `tb_karyawan` VALUES ('%s','%s','%s','%s','%s','%s','%s', 'admin','%s')";
             java.sql.Connection conn = (Connection)config.configDB();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String date = sdf.format(tanggal_lahir.getDate());
@@ -2337,13 +2337,15 @@ public class MainPage extends javax.swing.JFrame {
                 tf_nama_karyawan.getText(),
                 date,
                 tf_nik_karyawan.getText(),
-                cmb_kelamin.getSelectedItem(),
                 cmb_jenis_kelamin_karyawan.getSelectedItem(),
                 ta_alamat_karyawan.getText(),
-                tf_password_karyawan.getText()
+                tf_password_karyawan.getText(),
+                tf_username_karyawan.getText()
             );
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
+            panel_tambah_karyawan.setVisible(false);
+            getDataKaryawan();
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
