@@ -128,8 +128,7 @@ public class LoginForm extends javax.swing.JFrame {
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
-            if (res.next()) {
-                
+            if (res.next()) {          
                 String rule = res.getString(8);
                 System.out.println(rule);
                 if(rule.equals("admin")){
@@ -145,7 +144,6 @@ public class LoginForm extends javax.swing.JFrame {
                 }else{
                     JOptionPane.showMessageDialog(this, "rule tidak ada");
                 }
-                
             }else{
                 JOptionPane.showMessageDialog(this, "Password atau username salah");
             }

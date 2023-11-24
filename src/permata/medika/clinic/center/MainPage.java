@@ -1434,7 +1434,7 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         menu_keluhan.add(btn_simpan_keluhan);
-        btn_simpan_keluhan.setBounds(520, 382, 110, 40);
+        btn_simpan_keluhan.setBounds(520, 530, 110, 40);
 
         ta_keluhan.setColumns(20);
         ta_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -1686,11 +1686,29 @@ public class MainPage extends javax.swing.JFrame {
             tf_nama_lengkap.setText("");
             tf_nik.setText("");
             cmb_kelamin.setSelectedItem("");
-            cmb_status_pernikahan.setSelectedItem("");
-            cmb_agama.setSelectedItem("");
+            cmb_status_pernikahan.setSelectedIndex(0);
+            cmb_agama.setSelectedIndex(0);
             tf_nomor_telepon.setText("");
             ta_alamat.setText("");
             tf_no_bpjs.setText("");
+    }
+    
+    public void resetInputDokter(){
+            tf_nama_dokter.setText("");
+            alamat_dokter.setText("");
+            tf_nik_dokter.setText("");
+            cmb_kelamin_dokter.setSelectedIndex(0);
+            tf_input_jadwal_dokter.setText("");
+            cmb_poli_tujuan_dokter.setSelectedIndex(0);
+    }
+    
+    public void resetInputKaryawan(){
+            tf_nama_karyawan.setText("");
+            tf_nik_karyawan.setText("");
+            cmb_jenis_kelamin_karyawan.setSelectedIndex(0);
+            ta_alamat_karyawan.setText("");
+            tf_password_karyawan.setText("");
+            tf_username_karyawan.setText("");
     }
     
     public void getIDKaryawan(){
@@ -1744,6 +1762,31 @@ public class MainPage extends javax.swing.JFrame {
     }
     
     public void getIDRekamMedis(){
+        try {
+            String sql = "select id_rekam_medis from `tb_pasien`";
+            java.sql.Connection conn = (Connection) config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            String lastNumber = null;
+            while (res.next()) {
+              lastNumber  = res.getString(1);
+            };
+            
+            String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
+            int lastNumbers = Integer.parseInt(twoLastChars);
+            int newID = lastNumbers + 1;
+            if(newID >= 10){
+                tf_id_pasien.setText("IDP0" + newID);
+            }else{
+                tf_id_pasien.setText("IDP00" + newID);
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }
+    
+    public void getIDDokter(){
         try {
             String sql = "select id_rekam_medis from `tb_pasien`";
             java.sql.Connection conn = (Connection) config.configDB();
@@ -2198,6 +2241,7 @@ public class MainPage extends javax.swing.JFrame {
             pst.execute();
             getIDRekamMedis();
             resetInputPasien();
+            setJumlahPasien();
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
@@ -2362,6 +2406,9 @@ public class MainPage extends javax.swing.JFrame {
             pst.execute();
             panel_tambah_karyawan.setVisible(false);
             getDataKaryawan();
+            setJumlahKaryawan();
+            resetInputKaryawan();
+            getIDKaryawan();
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
@@ -2447,6 +2494,9 @@ public class MainPage extends javax.swing.JFrame {
             );
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
+            resetInputDokter();
+            getDataDokter();
+           
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
@@ -2571,6 +2621,7 @@ public class MainPage extends javax.swing.JFrame {
             pst.execute();
             panel_edit_karyawan.setVisible(false);
             getDataKaryawan();
+            setJumlahKaryawan();
             JOptionPane.showMessageDialog(null, "Data berhasil terupdate");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
