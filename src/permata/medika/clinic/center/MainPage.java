@@ -116,6 +116,7 @@ public class MainPage extends javax.swing.JFrame {
         jscroll_tabel_rekam_medis1 = new javax.swing.JScrollPane();
         tabel_rekam_medis_owner = new javax.swing.JTable();
         btn_detaill_rekam_medis_owner = new javax.swing.JLabel();
+        tf_search_rekam_medis_owner = new javax.swing.JTextField();
         bg_dashboard4 = new javax.swing.JLabel();
         owner_dokter = new javax.swing.JPanel();
         detail_dokter = new javax.swing.JPanel();
@@ -157,6 +158,7 @@ public class MainPage extends javax.swing.JFrame {
         tf_id_dokter = new javax.swing.JTextField();
         btn_batal_tambah_dokter = new javax.swing.JLabel();
         bg_tambah_dokter = new javax.swing.JLabel();
+        tf_search_dokter = new javax.swing.JTextField();
         jscroll_tabel_dokter = new javax.swing.JScrollPane();
         tabel_dokter = new javax.swing.JTable();
         btn_detail_dokter = new javax.swing.JLabel();
@@ -204,12 +206,13 @@ public class MainPage extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         ta_alamat_karyawan = new javax.swing.JTextArea();
         bg_dashboard2 = new javax.swing.JLabel();
-        jscroll_tabel_karyawan = new javax.swing.JScrollPane();
-        tabel_karyawan = new javax.swing.JTable();
+        tf_search_karyawan = new javax.swing.JTextField();
         btn_detail_karyawan = new javax.swing.JLabel();
         btn_hapus_karyawan = new javax.swing.JLabel();
         btn_tambah_karyawan_owner = new javax.swing.JLabel();
         btn_edit_karyawan = new javax.swing.JLabel();
+        jscroll_tabel_karyawan = new javax.swing.JScrollPane();
+        tabel_karyawan = new javax.swing.JTable();
         bg_karyawan_owner = new javax.swing.JLabel();
         owner_dashboard = new javax.swing.JPanel();
         lbl_jumlah_pegawai_owner = new javax.swing.JLabel();
@@ -270,6 +273,7 @@ public class MainPage extends javax.swing.JFrame {
         jscroll_tabel_rekam_medis = new javax.swing.JScrollPane();
         tabel_rekam_medis = new javax.swing.JTable();
         detail_rekam_mediss = new javax.swing.JLabel();
+        tf_search_rekam_medis = new javax.swing.JTextField();
         bg_rekammedis = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -566,6 +570,16 @@ public class MainPage extends javax.swing.JFrame {
         owner_rekammedis.add(btn_detaill_rekam_medis_owner);
         btn_detaill_rekam_medis_owner.setBounds(770, 180, 70, 60);
 
+        tf_search_rekam_medis_owner.setBackground(new Color(0,0,0,0));
+        tf_search_rekam_medis_owner.setBorder(null);
+        tf_search_rekam_medis_owner.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tf_search_rekam_medis_ownerKeyReleased(evt);
+            }
+        });
+        owner_rekammedis.add(tf_search_rekam_medis_owner);
+        tf_search_rekam_medis_owner.setBounds(890, 180, 270, 60);
+
         bg_dashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Rekam Medis - Pemilik.png"))); // NOI18N
         owner_rekammedis.add(bg_dashboard4);
         bg_dashboard4.setBounds(0, 0, 1276, 856);
@@ -847,6 +861,20 @@ public class MainPage extends javax.swing.JFrame {
 
         owner_dokter.add(panel_tambah_dokter);
         panel_tambah_dokter.setBounds(0, 0, 1280, 860);
+
+        tf_search_dokter.setBackground(new Color(0,0,0,0));
+        tf_search_dokter.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_search_dokter.setBorder(null);
+        tf_search_dokter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tf_search_dokterKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_search_dokterKeyTyped(evt);
+            }
+        });
+        owner_dokter.add(tf_search_dokter);
+        tf_search_dokter.setBounds(890, 180, 270, 60);
 
         tabel_dokter.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tabel_dokter.setModel(new javax.swing.table.DefaultTableModel(
@@ -1201,23 +1229,31 @@ public class MainPage extends javax.swing.JFrame {
         owner_karyawan.add(panel_tambah_karyawan);
         panel_tambah_karyawan.setBounds(0, 0, 1280, 870);
 
-        tabel_karyawan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        tabel_karyawan.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ID Dokter", "Nama Dokter", "Jenis Kelamin", "Jadwal", "Nama Poli"
+        tf_search_karyawan.setBackground(new Color(0,0,0,0));
+        tf_search_karyawan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_search_karyawan.setBorder(null);
+        tf_search_karyawan.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
-        ));
-        tabel_karyawan.setRowHeight(40);
-        jscroll_tabel_karyawan.setViewportView(tabel_karyawan);
-
-        owner_karyawan.add(jscroll_tabel_karyawan);
-        jscroll_tabel_karyawan.setBounds(100, 310, 1080, 460);
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tf_search_karyawanInputMethodTextChanged(evt);
+            }
+        });
+        tf_search_karyawan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_search_karyawanActionPerformed(evt);
+            }
+        });
+        tf_search_karyawan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tf_search_karyawanKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_search_karyawanKeyTyped(evt);
+            }
+        });
+        owner_karyawan.add(tf_search_karyawan);
+        tf_search_karyawan.setBounds(890, 180, 270, 60);
 
         btn_detail_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1250,6 +1286,24 @@ public class MainPage extends javax.swing.JFrame {
         });
         owner_karyawan.add(btn_edit_karyawan);
         btn_edit_karyawan.setBounds(600, 180, 70, 60);
+
+        tabel_karyawan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tabel_karyawan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID Dokter", "Nama Dokter", "Jenis Kelamin", "Jadwal", "Nama Poli"
+            }
+        ));
+        tabel_karyawan.setRowHeight(40);
+        jscroll_tabel_karyawan.setViewportView(tabel_karyawan);
+
+        owner_karyawan.add(jscroll_tabel_karyawan);
+        jscroll_tabel_karyawan.setBounds(100, 310, 1080, 460);
 
         bg_karyawan_owner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-admin/Pegawai - Pemilik.png"))); // NOI18N
         owner_karyawan.add(bg_karyawan_owner);
@@ -1623,6 +1677,16 @@ public class MainPage extends javax.swing.JFrame {
         });
         menu_rekammedis.add(detail_rekam_mediss);
         detail_rekam_mediss.setBounds(770, 180, 70, 70);
+
+        tf_search_rekam_medis.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        tf_search_rekam_medis.setText("IDK004");
+        tf_search_rekam_medis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tf_search_rekam_medisKeyReleased(evt);
+            }
+        });
+        menu_rekammedis.add(tf_search_rekam_medis);
+        tf_search_rekam_medis.setBounds(890, 180, 260, 60);
 
         bg_rekammedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/halaman-menu/Rekam Medis - Pemilik.png"))); // NOI18N
         menu_rekammedis.add(bg_rekammedis);
@@ -2409,6 +2473,7 @@ public class MainPage extends javax.swing.JFrame {
             setJumlahKaryawan();
             resetInputKaryawan();
             getIDKaryawan();
+            getComboRM();
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
@@ -2762,8 +2827,8 @@ public class MainPage extends javax.swing.JFrame {
                 detail_alamat_karyawan.setText(res.getString(4));
                 detail_nik_karyawan.setText(res.getString(5));
                 detail_kelamin_karyawan.setText(res.getString(6));
-                detail_username_karyawan.setText(res.getString(7));
-                detail_password_karyawan.setText(res.getString(8));
+                detail_username_karyawan.setText(res.getString(9));
+                detail_password_karyawan.setText(res.getString(7));
                 
                 detail_karyawan.setVisible(true);
             }else{
@@ -2858,6 +2923,202 @@ public class MainPage extends javax.swing.JFrame {
             System.err.println("koneksi gagal " + e.getMessage());
         }
     }//GEN-LAST:event_btn_detaill_rekam_medis_ownerMouseClicked
+
+    private void tf_search_karyawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_search_karyawanActionPerformed
+//         try {
+//            int row =tabel_karyawan.getSelectedRow();
+//            String id_karyawan =(tabel_karyawan.getModel().getValueAt(row, 0).toString());
+//            String sql = "SELECT * FROM tb_karyawan where id_karyawan = '"+id_karyawan+"'";
+//            java.sql.Connection conn = (Connection) config.configDB();
+//            java.sql.Statement stm = conn.createStatement();
+//            java.sql.ResultSet res = stm.executeQuery(sql);
+//
+//            DefaultTableModel tbl = new DefaultTableModel();
+//            tbl.addColumn("ID Karyawan");
+//            tbl.addColumn("Nama Karyawan");
+//            tbl.addColumn("Tempat Tanggal Lahir");
+//            tbl.addColumn("NIK Karyawan");
+//            tbl.addColumn("Jenis Kelamin");
+//            tbl.addColumn("Alamat");
+//            
+//            while (res.next()) {
+//                tbl.addRow(new Object[]{
+//                    res.getString(1),
+//                    res.getString(2),
+//                    res.getString(3),
+//                    res.getString(4),
+//                    res.getString(5),
+//                    res.getString(6)
+//                });
+//                tabel_karyawan.setModel(tbl);
+//            };
+//            
+//        } catch (Exception e) {
+//            System.err.println("koneksi gagal " + e.getMessage());
+//        }
+    }//GEN-LAST:event_tf_search_karyawanActionPerformed
+
+    private void tf_search_karyawanInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tf_search_karyawanInputMethodTextChanged
+       
+    }//GEN-LAST:event_tf_search_karyawanInputMethodTextChanged
+
+    private void tf_search_karyawanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_search_karyawanKeyTyped
+        
+    }//GEN-LAST:event_tf_search_karyawanKeyTyped
+
+    private void tf_search_karyawanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_search_karyawanKeyReleased
+        try {
+            String nama_karyawan = tf_search_karyawan.getText();
+            if (nama_karyawan == null || nama_karyawan.isEmpty()) {
+              getDataKaryawan();
+            } else{
+                String sql = "SELECT * FROM tb_karyawan WHERE nama_karyawan = ?";
+                java.sql.Connection conn = (Connection) config.configDB();
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+
+                pst.setString(1, nama_karyawan);
+
+                java.sql.ResultSet res = pst.executeQuery();
+
+                DefaultTableModel tbl = new DefaultTableModel();
+                tbl.addColumn("ID Karyawan");
+                tbl.addColumn("Nama Karyawan");
+                tbl.addColumn("Tempat Tanggal Lahir");
+                tbl.addColumn("NIK Karyawan");
+                tbl.addColumn("Jenis Kelamin");
+                tbl.addColumn("Alamat");
+
+                    while (res.next()) {
+                        tbl.addRow(new Object[]{
+                            res.getString(1),
+                            res.getString(2),
+                            res.getString(3),
+                            res.getString(4),
+                            res.getString(5),
+                            res.getString(6)
+                        });
+                    }
+                tabel_karyawan.setModel(tbl);
+            }
+
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_tf_search_karyawanKeyReleased
+
+    private void tf_search_dokterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_search_dokterKeyReleased
+        try {
+            String nama_dokter = tf_search_dokter.getText();
+            if (nama_dokter == null || nama_dokter.isEmpty()) {
+              getDataDokter();
+            } else{
+                try {
+                    String sql = "SELECT * FROM tb_dokter where nama_dokter = '"+nama_dokter+"'";
+                    java.sql.Connection conn = (Connection) config.configDB();
+                    java.sql.Statement stm = conn.createStatement();
+                    java.sql.ResultSet res = stm.executeQuery(sql);
+
+                    DefaultTableModel tbl = new DefaultTableModel();
+                    tbl.addColumn("ID Dokter");
+                    tbl.addColumn("Nama Dokter");
+                    tbl.addColumn("Jenis Kelamin");
+                    tbl.addColumn("Jadwal");
+                    tbl.addColumn("Nama Poli");
+
+                    while (res.next()) {
+                        tbl.addRow(new Object[]{
+                            res.getString(1),
+                            res.getString(2),
+                            res.getString(6),
+                            res.getString(7),
+                            res.getString(8)
+                        });
+                        tabel_dokter.setModel(tbl);
+                    };
+
+                } catch (Exception e) {
+                    System.err.println("koneksi gagal " + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_tf_search_dokterKeyReleased
+
+    private void tf_search_dokterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_search_dokterKeyTyped
+        
+    }//GEN-LAST:event_tf_search_dokterKeyTyped
+
+    private void tf_search_rekam_medis_ownerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_search_rekam_medis_ownerKeyReleased
+
+        try {
+            String nama_pasien = tf_search_rekam_medis_owner.getText();
+            if (nama_pasien == null || nama_pasien.isEmpty()) {
+              getDataRekamMedis();
+            } else{
+                String sql = "SELECT tb_keluhan.id_rekam_medis, tb_pasien.nama, tb_pasien.alamat, tb_keluhan.tanggal_pemeriksaan ,tb_keluhan.layanan FROM tb_keluhan JOIN tb_pasien ON tb_keluhan.id_rekam_medis = tb_pasien.id_rekam_medis where tb_pasien.nama = '"+nama_pasien+"';";
+                java.sql.Connection conn = (Connection) config.configDB();
+                java.sql.Statement stm = conn.createStatement();
+                java.sql.ResultSet res = stm.executeQuery(sql);
+
+                DefaultTableModel tbl = new DefaultTableModel();
+                tbl.addColumn("Nomor RM");
+                tbl.addColumn("Nama");
+                tbl.addColumn("Alamat");
+                tbl.addColumn("Tanggal Kontrol");
+                tbl.addColumn("Layanan");
+                tabel_rekam_medis_owner.setModel(tbl);
+
+                while (res.next()) {
+                    tbl.addRow(new Object[]{
+                        res.getString(1),
+                        res.getString(2),
+                        res.getString(3),
+                        res.getString(4),
+                        res.getString(5)
+                    });
+                    tabel_rekam_medis_owner.setModel(tbl);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_tf_search_rekam_medis_ownerKeyReleased
+
+    private void tf_search_rekam_medisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_search_rekam_medisKeyReleased
+        try {
+            String nama_pasien = tf_search_rekam_medis.getText();
+            if (nama_pasien == null || nama_pasien.isEmpty()) {
+              getDataRekamMedis();
+            } else{
+                String sql = "SELECT tb_keluhan.id_rekam_medis, tb_pasien.nama, tb_pasien.alamat, tb_keluhan.tanggal_pemeriksaan ,tb_keluhan.layanan FROM tb_keluhan JOIN tb_pasien ON tb_keluhan.id_rekam_medis = tb_pasien.id_rekam_medis where tb_pasien.nama = '"+nama_pasien+"';";
+                java.sql.Connection conn = (Connection) config.configDB();
+                java.sql.Statement stm = conn.createStatement();
+                java.sql.ResultSet res = stm.executeQuery(sql);
+
+                DefaultTableModel tbl = new DefaultTableModel();
+                tbl.addColumn("Nomor RM");
+                tbl.addColumn("Nama");
+                tbl.addColumn("Alamat");
+                tbl.addColumn("Tanggal Kontrol");
+                tbl.addColumn("Layanan");
+                tabel_rekam_medis.setModel(tbl);
+
+                while (res.next()) {
+                    tbl.addRow(new Object[]{
+                        res.getString(1),
+                        res.getString(2),
+                        res.getString(3),
+                        res.getString(4),
+                        res.getString(5)
+                    });
+                    tabel_rekam_medis.setModel(tbl);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("koneksi gagal " + e.getMessage());
+        }
+    }//GEN-LAST:event_tf_search_rekam_medisKeyReleased
 
     /**
      * @param args the command line arguments
@@ -3094,6 +3355,10 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nomor_telepon;
     private javax.swing.JTextField tf_password_karyawan;
     private javax.swing.JTextField tf_password_karyawan_edit;
+    private javax.swing.JTextField tf_search_dokter;
+    private javax.swing.JTextField tf_search_karyawan;
+    private javax.swing.JTextField tf_search_rekam_medis;
+    private javax.swing.JTextField tf_search_rekam_medis_owner;
     private javax.swing.JTextField tf_username_karyawan;
     private javax.swing.JTextField tf_username_karyawan_edit;
     // End of variables declaration//GEN-END:variables
