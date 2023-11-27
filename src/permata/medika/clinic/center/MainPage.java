@@ -242,6 +242,7 @@ public class MainPage extends javax.swing.JFrame {
         bg_pendaftaran = new javax.swing.JLabel();
         cmb_poli1 = new javax.swing.JComboBox<>();
         menu_keluhan = new javax.swing.JPanel();
+        cmb_layanan = new javax.swing.JComboBox<>();
         tf_id_keluhan = new javax.swing.JTextField();
         btn_simpan_keluhan = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -1475,6 +1476,16 @@ public class MainPage extends javax.swing.JFrame {
         menu_keluhan.setBackground(new java.awt.Color(102, 255, 0));
         menu_keluhan.setLayout(null);
 
+        cmb_layanan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Layanan ---", "BPJS", "Umum" }));
+        cmb_layanan.setBorder(null);
+        cmb_layanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_layananActionPerformed(evt);
+            }
+        });
+        menu_keluhan.add(cmb_layanan);
+        cmb_layanan.setBounds(450, 390, 380, 50);
+
         tf_id_keluhan.setBackground(new Color(0,0,0,0));
         tf_id_keluhan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         tf_id_keluhan.setBorder(null);
@@ -1498,7 +1509,7 @@ public class MainPage extends javax.swing.JFrame {
         jScrollPane2.setViewportView(ta_keluhan);
 
         menu_keluhan.add(jScrollPane2);
-        jScrollPane2.setBounds(460, 380, 350, 100);
+        jScrollPane2.setBounds(890, 380, 350, 100);
 
         tf_jadwal_dokter.setBackground(new Color(0,0,0,0));
         tf_jadwal_dokter.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -2319,7 +2330,7 @@ public class MainPage extends javax.swing.JFrame {
     private void btn_simpan_keluhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_simpan_keluhanMouseClicked
         try {
            
-            String sql = "INSERT INTO `tb_keluhan`(`id_keluhan`, `id_rekam_medis`, `id_poli`, `keluhan`, `id_dokter`) VALUES ('%s','%s','%s','%s','%s')";
+            String sql = "INSERT INTO `tb_keluhan`(`id_keluhan`, `id_rekam_medis`, `id_poli`, `keluhan`, `id_dokter`, `layanan`) VALUES ('%s','%s','%s','%s','%s', '%s')";
             java.sql.Connection conn = (Connection)config.configDB();
             sql = String.format(
                 sql,
@@ -2327,10 +2338,12 @@ public class MainPage extends javax.swing.JFrame {
                 cmb_rekam_medis.getSelectedItem(),
                 cmb_poli_tujuan.getSelectedItem(),
                 ta_keluhan.getText(),
-                cmb_dokter.getSelectedItem()
+                cmb_dokter.getSelectedItem(),
+                cmb_layanan.getSelectedItem()
             );
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
+            getDataRekamMedis();
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
@@ -3120,6 +3133,10 @@ public class MainPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tf_search_rekam_medisKeyReleased
 
+    private void cmb_layananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_layananActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_layananActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3216,6 +3233,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_kelamin;
     private javax.swing.JComboBox<String> cmb_kelamin_dokter;
     private javax.swing.JComboBox<String> cmb_kelamin_edit;
+    private javax.swing.JComboBox<String> cmb_layanan;
     private javax.swing.JComboBox<String> cmb_poli;
     private javax.swing.JComboBox<String> cmb_poli1;
     private javax.swing.JComboBox<String> cmb_poli_dokter_edit;
