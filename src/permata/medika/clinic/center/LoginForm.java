@@ -7,10 +7,6 @@ import java.awt.Color;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author nico
- */
 public class LoginForm extends javax.swing.JFrame {
 
     /**

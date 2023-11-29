@@ -1085,10 +1085,8 @@
                 <Component class="javax.swing.JComboBox" name="cmb_poli_tujuan_dokter">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
+                      <StringArray count="1">
                         <StringItem index="0" value="--- Pilih Poli Tujuan ---"/>
-                        <StringItem index="1" value="Belum Nikah"/>
-                        <StringItem index="2" value="Sudah Nikah"/>
                       </StringArray>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

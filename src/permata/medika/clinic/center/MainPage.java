@@ -18,15 +18,9 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/**
- *
- * @author nico
- */
+
 public class MainPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainPage
-     */
 
     public MainPage() {
         initComponents();
@@ -783,7 +777,7 @@ public class MainPage extends javax.swing.JFrame {
         panel_tambah_dokter.add(jScrollPane4);
         jScrollPane4.setBounds(670, 520, 350, 100);
 
-        cmb_poli_tujuan_dokter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---", "Belum Nikah", "Sudah Nikah" }));
+        cmb_poli_tujuan_dokter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Poli Tujuan ---" }));
         cmb_poli_tujuan_dokter.setBorder(null);
         panel_tambah_dokter.add(cmb_poli_tujuan_dokter);
         cmb_poli_tujuan_dokter.setBounds(230, 620, 380, 50);
@@ -2064,6 +2058,7 @@ public class MainPage extends javax.swing.JFrame {
             
             while (res.next()) {
                 cmb_poli_tujuan.addItem(res.getString(1));
+                cmb_poli_tujuan_dokter.addItem(res.getString(1));
                 cmb_poli_dokter_edit.addItem(res.getString(1));
                 cmb_poli.addItem(res.getString(1));
             };
