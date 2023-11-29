@@ -255,7 +255,6 @@ public class MainPage extends javax.swing.JFrame {
         detail_nobpjs_pasien = new javax.swing.JLabel();
         detail_alamat_pasien = new javax.swing.JLabel();
         detail_no_telepon_pasien = new javax.swing.JLabel();
-        detail_pekerjaan_pasien = new javax.swing.JLabel();
         detail_agama_pasien = new javax.swing.JLabel();
         detail_status_pernikahan_pasien = new javax.swing.JLabel();
         detail_jenis_kelamin_pasien = new javax.swing.JLabel();
@@ -1582,32 +1581,27 @@ public class MainPage extends javax.swing.JFrame {
         detail_poli_tujuan_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_poli_tujuan_pasien.setText("IDK001");
         detail_rekam_medis.add(detail_poli_tujuan_pasien);
-        detail_poli_tujuan_pasien.setBounds(850, 470, 120, 20);
+        detail_poli_tujuan_pasien.setBounds(850, 430, 120, 20);
 
         detail_keluhan_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_keluhan_pasien.setText("IDK001");
         detail_rekam_medis.add(detail_keluhan_pasien);
-        detail_keluhan_pasien.setBounds(850, 430, 120, 20);
+        detail_keluhan_pasien.setBounds(850, 390, 120, 20);
 
         detail_nobpjs_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_nobpjs_pasien.setText("-");
         detail_rekam_medis.add(detail_nobpjs_pasien);
-        detail_nobpjs_pasien.setBounds(850, 390, 120, 20);
+        detail_nobpjs_pasien.setBounds(850, 350, 120, 20);
 
         detail_alamat_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_alamat_pasien.setText("IDK001");
         detail_rekam_medis.add(detail_alamat_pasien);
-        detail_alamat_pasien.setBounds(850, 350, 270, 20);
+        detail_alamat_pasien.setBounds(850, 310, 270, 20);
 
         detail_no_telepon_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_no_telepon_pasien.setText("IDK001");
         detail_rekam_medis.add(detail_no_telepon_pasien);
-        detail_no_telepon_pasien.setBounds(850, 310, 120, 20);
-
-        detail_pekerjaan_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
-        detail_pekerjaan_pasien.setText("IDK001");
-        detail_rekam_medis.add(detail_pekerjaan_pasien);
-        detail_pekerjaan_pasien.setBounds(850, 260, 120, 20);
+        detail_no_telepon_pasien.setBounds(850, 270, 220, 20);
 
         detail_agama_pasien.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         detail_agama_pasien.setText("IDK001");
@@ -2826,9 +2820,9 @@ public class MainPage extends javax.swing.JFrame {
                 detail_id_karyawan.setText(res.getString(1));
                 detail_nama_karyawan.setText(res.getString(2));
                 detail_ttl_karyawan.setText(res.getString(3));
-                detail_alamat_karyawan.setText(res.getString(4));
-                detail_nik_karyawan.setText(res.getString(5));
-                detail_kelamin_karyawan.setText(res.getString(6));
+                detail_alamat_karyawan.setText(res.getString(6));
+                detail_nik_karyawan.setText(res.getString(4));
+                detail_kelamin_karyawan.setText(res.getString(5));
                 detail_username_karyawan.setText(res.getString(9));
                 detail_password_karyawan.setText(res.getString(7));
                 
@@ -3262,7 +3256,6 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel detail_nobpjs_pasien;
     private javax.swing.JLabel detail_nobpjs_pasien1;
     private javax.swing.JLabel detail_password_karyawan;
-    private javax.swing.JLabel detail_pekerjaan_pasien;
     private javax.swing.JLabel detail_poli_dokter;
     private javax.swing.JLabel detail_poli_tujuan_pasien;
     private javax.swing.JLabel detail_poli_tujuan_pasien1;
