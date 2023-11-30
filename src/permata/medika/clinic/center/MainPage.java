@@ -2300,6 +2300,7 @@ public class MainPage extends javax.swing.JFrame {
             getIDRekamMedis();
             resetInputPasien();
             setJumlahPasien();
+            getComboRM();
             JOptionPane.showMessageDialog(null, "Data berhasil tersimpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Gagal disimpan"+ex);
