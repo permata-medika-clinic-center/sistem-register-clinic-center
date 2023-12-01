@@ -1768,100 +1768,118 @@ public class MainPage extends javax.swing.JFrame {
             tf_username_karyawan.setText("");
     }
     
-    public void getIDKaryawan(){
+    public void getIDKaryawan() {
         try {
-            String sql = "select id_karyawan from `tb_karyawan`";
+            String sql = "SELECT id_karyawan FROM `tb_karyawan`";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
 
             String lastNumber = null;
             while (res.next()) {
-              lastNumber  = res.getString(1);
-            };
-            
-            String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
-            int lastNumbers = Integer.parseInt(twoLastChars);
-            int newID = lastNumbers + 1;
-            if(newID >= 10){
-                tf_id_karyawan.setText("IDK0" + newID);
-            }else{
-                tf_id_karyawan.setText("IDK00" + newID);
+                lastNumber = res.getString(1);
+            }
+
+            if (lastNumber != null) {
+                String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
+                int lastNumbers = Integer.parseInt(twoLastChars);
+                int newID = lastNumbers + 1;
+                if (newID >= 10) {
+                    tf_id_karyawan.setText("IDK0" + newID);
+                } else {
+                    tf_id_karyawan.setText("IDK00" + newID);
+                }
+            } else {
+                tf_id_karyawan.setText("IDK001");
             }
         } catch (Exception e) {
             System.err.println("koneksi gagal " + e.getMessage());
         }
     }
     
-    public void getIDKeluhanOtomatis(){
+    public void getIDKeluhanOtomatis() {
         try {
-            String sql = "select id_keluhan from `tb_keluhan`";
+            String sql = "SELECT id_keluhan FROM `tb_keluhan`";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
 
             String lastNumber = null;
             while (res.next()) {
-              lastNumber  = res.getString(1);
-            };
-            
-            String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
-            int lastNumbers = Integer.parseInt(twoLastChars);
-            int newID = lastNumbers + 1;
-            if(newID >= 10){
-                tf_id_keluhan.setText("IDKE" + newID);
-            }else{
-                tf_id_keluhan.setText("IDKE0" + newID);
+                lastNumber = res.getString(1);
+            }
+
+            if (lastNumber != null) {
+                String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
+                int lastNumbers = Integer.parseInt(twoLastChars);
+                int newID = lastNumbers + 1;
+
+                if (newID >= 10) {
+                    tf_id_keluhan.setText("IDKE" + newID);
+                } else {
+                    tf_id_keluhan.setText("IDKE0" + newID);
+                }
+            } else {
+                tf_id_keluhan.setText("IDKE01");
             }
         } catch (Exception e) {
             System.err.println("koneksi gagal " + e.getMessage());
         }
     }
-    
-    public void getIDRekamMedis(){
+
+
+    public void getIDRekamMedis() {
         try {
-            String sql = "select id_rekam_medis from `tb_pasien`";
+            String sql = "SELECT id_rekam_medis FROM `tb_pasien`";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
-            
+
             String lastNumber = null;
             while (res.next()) {
-              lastNumber  = res.getString(1);
-            };
-            
-            String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
-            int lastNumbers = Integer.parseInt(twoLastChars);
-            int newID = lastNumbers + 1;
-            if(newID >= 10){
-                tf_id_pasien.setText("IDP0" + newID);
-            }else{
-                tf_id_pasien.setText("IDP00" + newID);
+                lastNumber = res.getString(1);
+            }
+
+            if (lastNumber != null) {
+                String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
+                int lastNumbers = Integer.parseInt(twoLastChars);
+                int newID = lastNumbers + 1;
+                if (newID >= 10) {
+                    tf_id_pasien.setText("IDP0" + newID);
+                } else {
+                    tf_id_pasien.setText("IDP00" + newID);
+                }
+            } else {
+                tf_id_pasien.setText("IDP001");
             }
         } catch (Exception e) {
             System.err.println("koneksi gagal " + e.getMessage());
         }
     }
-    
-    public void getIDDokter(){
+
+    public void getIDDokter() {
         try {
-            String sql = "select id_rekam_medis from `tb_pasien`";
+            String sql = "SELECT id_dokter FROM `tb_dokter`";
             java.sql.Connection conn = (Connection) config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
-            
+
             String lastNumber = null;
             while (res.next()) {
-              lastNumber  = res.getString(1);
-            };
-            
-            String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
-            int lastNumbers = Integer.parseInt(twoLastChars);
-            int newID = lastNumbers + 1;
-            if(newID >= 10){
-                tf_id_pasien.setText("IDP0" + newID);
-            }else{
-                tf_id_pasien.setText("IDP00" + newID);
+                lastNumber = res.getString(1);
+            }
+
+            if (lastNumber != null) {
+                String twoLastChars = lastNumber.substring(lastNumber.length() - 2);
+                int lastNumbers = Integer.parseInt(twoLastChars);
+                int newID = lastNumbers + 1;
+                if (newID >= 10) {
+                    tf_id_dokter.setText("IDD0" + newID);
+                } else {
+                    tf_id_dokter.setText("IDD00" + newID);
+                }
+            } else {
+                tf_id_dokter.setText("IDD001");
             }
         } catch (Exception e) {
             System.err.println("koneksi gagal " + e.getMessage());
